@@ -9,6 +9,7 @@ import { SigninProfessional } from './pages/SigninProfessional';
 import { Register } from './pages/Register';
 import { AppointmentCard } from './components/AppointmentCard';
 import { Modalcomp } from './components/Modalcomp';
+import { Profile } from './components/Profile';
 
 function App() {
 
@@ -22,8 +23,8 @@ function App() {
           <Route path="/signinprofessional" element={<SigninProfessional />} />
           <Route path="/appointment" element={<AppointmentCard />} />
           <Route path="/pop" element={<Modalcomp/>}/>
-          {/* <Route path="/thankYou" element={<ThankYou/>}/>
-          <Route path="/dashboard" element={<Dashboard/>}/> */}
+          <Route path="/profile" element={<Profile/>}/>
+          {/* <Route path="/dashboard" element={<Dashboard/>}/> */}
         </Routes>
       </Router>
     </MantineProvider>
