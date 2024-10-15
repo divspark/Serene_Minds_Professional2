@@ -1,44 +1,25 @@
-import React, { useState } from "react";
-import { Tabs, rem } from "@mantine/core";
+import React from 'react';
 import { CiEdit, CiStar } from "react-icons/ci";
 import { IoAddOutline } from "react-icons/io5";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
-export const Profile = () => {
-  const [active, setActive] = useState(1);
+export const Shareable = () => {
   const nextStep = () =>
     setActive((current) => (current < 5 ? current + 1 : current));
   return (
-    <div className="w-3/4 flex justify-center items-center">
-      <Tabs defaultValue="shareable">
-        <Tabs.List>
-          <Tabs.Tab value="shareable">
-            <h2 className="text-lg text-gray-500 font-bold">Shareable</h2>
-          </Tabs.Tab>
-          <Tabs.Tab value="credentials">
-            <h2 className="text-lg text-gray-500 font-bold">
-              Your Credentials
-            </h2>
-          </Tabs.Tab>
-          <Tabs.Tab value="professional">
-            <h2 className="text-lg text-gray-500 font-bold">Professional</h2>
-          </Tabs.Tab>
-        </Tabs.List>
-
-        <Tabs.Panel value="shareable">
-          <div className="container-5 flex  flex-col justify-center">
+    <div className="container-5 flex  flex-col justify-center">
             <div className="main-section flex  flex-col justify-center">
               <img
-                src="bg-image.jpeg"
+                src="bg-image.jpeg"ś
                 alt="bg-image"
-                className="w-[728px] h-[140px] rounded-t-lg mt-3"
+                className="w-[728px] h-[140px] rounded-t-lg mt-3 border-none"
               />
               <img
                 src="manager.png"
                 alt="manager"
-                className="bg-blue-500 rounded-full w-[150px] h-[150px] relative top-[-70px] left-7 border-8 border-white"
+                className="bg-blue-500 rounded-full w-[150px] h-[150px] relative top-[-70px] left-7 border-8 border-white "
               />
-              <div className="flex relative  top-[-150px] mb-4 w-[728px] h-[140px] border border-gray-300 rounded-b-lg">
+              <div className="flex relative  top-[-150px] mb-4 w-[728px] h-[140px]  rounded-b-lg shadow-md">
                 <div className="pshyc-details ml-56 p-3">
                   <h2 className="text-xl font-bold p-1">Jake gyll</h2>
                   <p className="p-1 text-gray-500 ">Clinical Psychologist</p>
@@ -55,7 +36,7 @@ export const Profile = () => {
               </div>
             </div>
 
-            <div className="about-us flex  flex-col justify-center w-[728px] h-[140px] border border-gray-300 p-4 relative  top-[-150px] rounded-lg">
+            <div className="about-us flex  flex-col justify-center w-[728px] h-[140px] shadow-md border border-gray-300 p-4 relative  top-[-150px] rounded-lg">
               <h2 className="text-lg font-bold mb-2">About Me</h2>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
@@ -268,78 +249,5 @@ export const Profile = () => {
               <h2 className="text-2xl font-bold mb-2 ml-4">INR 700/session</h2>
             </div>
           </div>
-        </Tabs.Panel>
-
-        <Tabs.Panel value="credentials">Messages tab content</Tabs.Panel>
-
-        <Tabs.Panel value="professional">
-          <div className="pro-details w-[728px]  p-4 mt-5 relative rounded-lg border-l-4 border-blue-400 shadow-lg">
-            <div className="flex justify-between ml-4">
-              <h2 className="text-md  mb-2">What is your area of expertise?</h2>
-              <CiEdit style={{ color: "blue", fontSize: "24px" }} />
-            </div>
-            <h2 className="text-lg font-semibold mb-2 pl-4">Psychologist</h2>
-          </div>
-
-          <div className="pro-details w-[728px]  p-4 mt-5 relative rounded-lg border-l-4 border-blue-400 shadow-lg">
-            <div className="flex justify-between ml-4">
-              <h2 className="text-md  mb-2">What is your area of expertise?</h2>
-              <CiEdit style={{ color: "blue", fontSize: "24px" }} />
-            </div>
-            <h2 className="text-lg font-semibold mb-2 pl-4">Psychologist</h2>
-          </div>
-
-          <div className="pro-details w-[728px]  p-4 mt-5 relative rounded-lg border-l-4 border-blue-400 shadow-lg">
-            <div className="flex justify-between ml-4">
-              <h2 className="text-md  mb-2">What is your area of expertise?</h2>
-              <CiEdit style={{ color: "blue", fontSize: "24px" }} />
-            </div>
-            <h2 className="text-lg font-semibold mb-2 pl-4">Psychologist</h2>
-          </div>
-
-          <div className="pro-details w-[728px]  p-4 mt-5 relative rounded-lg border-l-4 border-blue-400 shadow-lg">
-            <div className="flex justify-between ml-4">
-              <h2 className="text-md  mb-2">What is your area of expertise?</h2>
-              <CiEdit style={{ color: "blue", fontSize: "24px" }} />
-            </div>
-            <h2 className="text-lg font-semibold mb-2 pl-4">Psychologist</h2>
-          </div>
-
-          <div className="pro-details w-[728px]  p-4 mt-5 relative rounded-lg border-l-4 border-blue-400 shadow-lg">
-            <div className="flex justify-between ml-4">
-              <h2 className="text-md  mb-2">What is your area of expertise?</h2>
-              <CiEdit style={{ color: "blue", fontSize: "24px" }} />
-            </div>
-            <h2 className="text-lg font-semibold mb-2 pl-4">Psychologist</h2>
-          </div>
-
-          <div className="pro-details w-[728px]  p-4 mt-5 relative rounded-lg border-l-4 border-blue-400 shadow-lg">
-            <div className="flex justify-between ml-4">
-              <h2 className="text-md  mb-2">What is your area of expertise?</h2>
-              <CiEdit style={{ color: "blue", fontSize: "24px" }} />
-            </div>
-            <h2 className="text-lg font-semibold mb-2 pl-4">Psychologist</h2>
-          </div>
-
-          <div className="pro-details w-[728px]  p-4 mt-5 relative rounded-lg border-l-4 border-blue-400 shadow-lg">
-            <div className="flex justify-between ml-4">
-              <h2 className="text-md  mb-2">What is your area of expertise?</h2>
-              <CiEdit style={{ color: "blue", fontSize: "24px" }} />
-            </div>
-            <h2 className="text-lg font-semibold mb-2 pl-4">Psychologist</h2>
-          </div>
-
-          <div className="flex justify-center">
-            <button
-              onClick={nextStep}
-              className="px-7 py-2 mt-8 mb-2 flex justify-center text-white rounded-full bg-[linear-gradient(to_right,#3A8EF6,#6F3AFA)]"
-            >
-              {" "}
-              Save Changes
-            </button>
-          </div>
-        </Tabs.Panel>
-      </Tabs>
-    </div>
-  );
-};
+  )
+}

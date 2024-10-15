@@ -1,6 +1,6 @@
 import React from "react";
 import { Stepper } from "@mantine/core";
-import { Steppercomp } from "../components/Steppercomp";
+import { Steppercomp } from "../../pages/Onboarding/Steppercomp";
 
 export const Register = () => {
   return (
