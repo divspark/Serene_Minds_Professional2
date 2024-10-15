@@ -4,11 +4,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import '@mantine/core/styles.css';
 import "@mantine/dates";
-import {SigninClient} from './pages/SigninClient/SigninClient';
-import { SigninProfessional } from './pages/SigninProfessional/SigninProfessional';
+import {SigninClient} from './pages/SignInClient/SigninClient';
+import { SigninProfessional } from './pages/SignInProfessional/SigninProfessional';
 import { Register } from './pages/Onboarding/Register';
 import { AppointmentCard } from './pages/Appointment/AppointmentCard';
 import { Profile } from './pages/Profile/Profile';
+import { SignUp } from './pages/SignUp/SignUp';
 
 function App() {
 
@@ -22,7 +23,7 @@ function App() {
           <Route path="/signinprofessional" element={<SigninProfessional />} />
           <Route path="/appointment" element={<AppointmentCard />} />
           <Route path="/profile" element={<Profile/>}/>
-          {/* <Route path="/dashboard" element={<Dashboard/>}/> */}
+          <Route path="/signup" element={<SignUp/>}/>
         </Routes>
       </Router>
     </MantineProvider>

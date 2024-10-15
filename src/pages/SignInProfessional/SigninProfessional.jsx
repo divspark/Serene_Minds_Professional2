@@ -1,4 +1,5 @@
 import React from "react";
+import { FcGoogle } from "react-icons/fc";
 
 export const SigninProfessional = () => {
   return (
@@ -20,7 +21,7 @@ export const SigninProfessional = () => {
       </div>
 
       <div className="signup-btn flex justify-center items-center mt-48">
-        <button className="border border-black px-44 py-2 rounded-full"><i className="fab fa-google w-5 h-5 mr-2"></i>Continue With Google</button>
+        <button className="border border-black px-44 py-2 rounded-full flex justify-center items-center"><FcGoogle size={24} className="mr-2"/>Continue With Google</button>
       </div>
 
       <div className="mt-6 w-full flex justify-center items-center">

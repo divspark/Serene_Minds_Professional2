@@ -4,7 +4,7 @@ import { Steppercomp } from "../../pages/Onboarding/Steppercomp";
 
 export const Register = () => {
   return (
-    <div className="main-div flex p-2">
+    <div className="main-div flex  fixed">
       {/* Left Half */}
       <div className="left-half w-1/2 rounded-lg relative">
         <img
