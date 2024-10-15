@@ -2,11 +2,20 @@ import React from 'react';
 import { CiEdit, CiStar } from "react-icons/ci";
 import { IoAddOutline } from "react-icons/io5";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { useDisclosure } from "@mantine/hooks";
+import { Modal, Button } from "@mantine/core";
+import { EditBioModal } from './EditBioModal';
 
 export const Shareable = () => {
   const nextStep = () =>
     setActive((current) => (current < 5 ? current + 1 : current));
+
+  const [openedBio, { openBio, closeBio }] = useDisclosure(false);
+  const [openedEducation, { openEducation, closeEducation }] = useDisclosure(false);
   return (
+    <>
+
+    <EditBioModal />
     <div className="container-5 flex  flex-col justify-center">
             <div className="main-section flex  flex-col justify-center">
               <img
@@ -37,7 +46,10 @@ export const Shareable = () => {
             </div>
 
             <div className="about-us flex  flex-col justify-center w-[728px] h-[140px] shadow-md border border-gray-300 p-4 relative  top-[-150px] rounded-lg">
-              <h2 className="text-lg font-bold mb-2">About Me</h2>
+            <div className="flex justify-between ml-2">
+                <h2 className="text-lg font-bold mb-2">About Me</h2>
+                <CiEdit style={{ color: "blue", fontSize: "24px" }} />
+              </div>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
                 animi voluptates earum eos, delectus eum hic, ut quasi quam
@@ -249,5 +261,7 @@ export const Shareable = () => {
               <h2 className="text-2xl font-bold mb-2 ml-4">INR 700/session</h2>
             </div>
           </div>
+
+          </>
   )
 }
