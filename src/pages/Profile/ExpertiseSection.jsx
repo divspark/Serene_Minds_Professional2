@@ -60,7 +60,7 @@ const ExpertiseSection = () => {
 
       {/* Modal for editing expertise */}
       <Modal
-        size="auto"
+        size="sm"
         opened={opened}
         onClose={close}
         title="Edit Area of Expertise"

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { useDisclosure } from "@mantine/hooks";
 import { Modal } from "@mantine/core";
 
@@ -8,6 +8,18 @@ export const ProfileDetails = () => {
   const [location, setLocation] = useState("Manchester, UK");
   const [profilePhoto, setProfilePhoto] = useState("manager.png");
   const [bgImage, setBgImage] = useState("bg-image.jpeg");
+
+  const handleProfilePhotoChange = (e) => {
+    // Handle profile photo file upload
+    const file = e.target.files[0];
+    // Example: Upload file to server or process as needed
+  };
+
+  const handleBgImageChange = (e) => {
+    // Handle background image file upload
+    const file = e.target.files[0];
+    // Example: Upload file to server or process as needed
+  };
 
   const handleSave = () => {
     close();
@@ -33,10 +45,19 @@ export const ProfileDetails = () => {
             <p className="p-1 text-gray-500">{location}</p>
           </div>
           <div className="p-5 ml-10">
-            <button onClick={open} className="border border-[#1678F2] text-[#1678F2] rounded-lg py-1 px-3 mr-3">
+            <button
+              onClick={open}
+              className="border border-[#1678F2] text-[#1678F2] rounded-lg py-1 px-3 mr-3"
+            >
               Edit Profile
             </button>
-            <button className="border border-[#1678F2] text-[#1678F2] rounded-lg py-1 px-3">
+            <button
+              className="border border-[#1678F2] text-[#1678F2] rounded-lg py-1 px-3"
+              onClick={() => {
+                navigator.clipboard.writeText(window.location.href);
+                alert("Profile URL copied to clipboard!");
+              }}
+            >
               Share Profile
             </button>
           </div>
@@ -45,20 +66,20 @@ export const ProfileDetails = () => {
 
       {/* Modal for editing profile */}
       <Modal
-        size="auto"
+        size="lg"
         opened={opened}
         onClose={close}
         title="Edit Profile"
         centered
         withCloseButton={false}
-        radius={"lg"}
+        radius="lg"
         styles={{
           title: { fontWeight: "700" },
         }}
       >
         <div className="px-8 py-4">
           <div className="flex flex-col mb-4">
-            <label className="mb-2">Name</label>
+            <label className="mb-2 font-semibold">Name</label>
             <input
               type="text"
               value={name}
@@ -67,7 +88,7 @@ export const ProfileDetails = () => {
             />
           </div>
           <div className="flex flex-col mb-4">
-            <label className="mb-2">Location</label>
+            <label className="mb-2 font-semibold">Location</label>
             <input
               type="text"
               value={location}
@@ -76,27 +97,27 @@ export const ProfileDetails = () => {
             />
           </div>
           <div className="flex flex-col mb-4">
-            <label className="mb-2">Profile Photo URL</label>
+            <label className="mb-2 font-semibold">Profile Photo</label>
             <input
-              type="text"
-              value={profilePhoto}
-              onChange={(e) => setProfilePhoto(e.target.value)}
+              type="file"
+              accept="image/*"
+              onChange={handleProfilePhotoChange}
               className="border-2 border-gray-400 p-2"
             />
           </div>
           <div className="flex flex-col mb-4">
-            <label className="mb-2">Background Photo URL</label>
+            <label className="mb-2 font-semibold">Banner Photo</label>
             <input
-              type="text"
-              value={bgImage}
-              onChange={(e) => setBgImage(e.target.value)}
+              type="file"
+              accept="image/*"
+              onChange={handleBgImageChange}
               className="border-2 border-gray-400 p-2"
             />
           </div>
         </div>
         <div className="flex justify-center mt-4 mb-2">
           <button
-            className="px-10 py-2 flex justify-center items-center text-white rounded-full bg-[linear-gradient(to_right,#3A8EF6,#6F3AFA)]"
+            className="px-10 py-2 flex justify-center items-center text-white rounded-full bg-gradient-to-r from-blue-500 to-purple-600"
             onClick={handleSave}
           >
             Save

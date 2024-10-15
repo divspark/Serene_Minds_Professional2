@@ -94,8 +94,9 @@ const DayAvailability = ({ day }) => {
             id="end-time"
             className="block w-full mb-4 border p-2 rounded-lg"
           />
+          <div className="flex justify-center">
           <button
-            className="px-10 py-2 text-white bg-blue-600 rounded-full"
+            className="px-10 py-2 mt-8 text-white rounded-full bg-[linear-gradient(to_right,#3A8EF6,#6F3AFA)]"
             onClick={() => {
               const start = document.getElementById("start-time").value;
               const end = document.getElementById("end-time").value;
@@ -104,6 +105,7 @@ const DayAvailability = ({ day }) => {
           >
             Add
           </button>
+          </div>
         </div>
       </Modal>
     </div>
