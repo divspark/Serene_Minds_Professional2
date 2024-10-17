@@ -5,37 +5,25 @@ import Chart from "../components/Chart";
 
 const Payment = () => {
   return (
-    <main className="flex bg-white h-screen overflow-hidden">
-      {/* Sidebar Component */}
-      <aside className="w-1/6 h-full sticky top-0">
-        <Slidercomp />
-      </aside>
+    <section className="flex-1 p-4 pt-0 overflow-y-auto">
+      {/* Header with Title and Add Payments Button */}
+      <div className="flex justify-between items-center mx-7 mb-6">
+        <h1 className="text-xl text-black font-medium">Payments</h1>
+        <button className="bg-[#3788E5] px-4 py-2 flex text-sm font-light text-white flex-row justify-center items-center">
+          Add Payments <FaCirclePlus className="ml-2" />
+        </button>
+      </div>
 
-      {/* Main Content */}
-      <section className="flex-1 p-4 pt-0 overflow-y-auto">
-        <Header />
+      {/* Chart Section */}
+      <div className="mx-10 mb-8">
+        <Chart />
+      </div>
 
-        {/* Header with Title and Add Payments Button */}
-        <div className="flex justify-between items-center mx-7 mb-6">
-          <h1 className="text-xl text-black font-medium">Payments</h1>
-          <button className="bg-[#3788E5] px-4 py-2 flex text-sm font-light text-white flex-row justify-center items-center">
-            Add Payments <FaCirclePlus className="ml-2" />
-          </button>
-        </div>
-
-        {/* Chart Section */}
-        <div className="mx-10 mb-8">
-          <Chart />
-        </div>
-
-        {/* Transaction Table Section */}
-        <div className="mx-10">
-          <div className="w-full overflow-x-auto">
-            
-          </div>
-        </div>
-      </section>
-    </main>
+      {/* Transaction Table Section */}
+      <div className="mx-10">
+        <div className="w-full overflow-x-auto"></div>
+      </div>
+    </section>
   );
 };
 

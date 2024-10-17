@@ -27,7 +27,9 @@ export const Profile = () => {
           <div className="flex justify-center">
             <Tabs.List>
               <Tabs.Tab value="shareable">
-                <h2 className="text-lg text-[#9995AF] font-semibold">Shareable</h2>
+                <h2 className="text-lg text-[#9995AF] font-semibold">
+                  Shareable
+                </h2>
               </Tabs.Tab>
               <Tabs.Tab value="credentials">
                 <h2 className="text-lg text-[#9995AF] font-semibold">
@@ -54,7 +56,9 @@ export const Profile = () => {
 
               <div className="services w-[728px] border border-gray-300 p-4 mt-5 relative  top-[-150px] rounded-lg">
                 <div className="flex justify-between ml-4">
-                  <h2 className="text-lg text-[#25324B] font-semibold mb-2">Availability</h2>
+                  <h2 className="text-lg text-[#25324B] font-semibold mb-2">
+                    Availability
+                  </h2>
                 </div>
 
                 <DayAvailability day="Mon" />
@@ -66,7 +70,9 @@ export const Profile = () => {
 
               <div className="services w-[728px] border border-gray-300 p-4 mt-5 relative  top-[-150px] rounded-lg">
                 <div className="flex justify-between ml-4">
-                  <h2 className="text-lg text-[#25324B] font-semibold mb-2s">Payment</h2>
+                  <h2 className="text-lg text-[#25324B] font-semibold mb-2s">
+                    Payment
+                  </h2>
                   <IoAddOutline style={{ color: "blue", fontSize: "24px" }} />
                 </div>
                 <h2 className="text-2xl text-[#2A2A2A] font-semibold mb-2 ml-4">
@@ -86,3 +92,5 @@ export const Profile = () => {
     </>
   );
 };
+
+export default Profile;
