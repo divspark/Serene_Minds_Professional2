@@ -1,7 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { SigninProfessional } from "../pages/SignInProfessional/SigninProfessional";
 import { Register } from "../pages/Onboarding/Register";
-import HomePage from "../pages/Home/HomePage";
+import Dashboard from "../pages/Dashboard";
+import MyClients from "../pages/MyClients";
+import Payment from "../pages/Payment";
 
 const router = createBrowserRouter([
   {
@@ -14,7 +16,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <HomePage />,
+    element: <Dashboard />,
+  },
+  {
+    path: "/clients",
+    element: <MyClients />,
+  },
+  {
+    path: "/payment",
+    element: <Payment />,
   },
 ]);
 
