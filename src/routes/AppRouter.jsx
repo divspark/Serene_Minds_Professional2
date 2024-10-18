@@ -2,7 +2,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { SigninProfessional } from "../pages/SignInProfessional/SigninProfessional";
 import { Register } from "../pages/Onboarding/Register";
 import Dashboard from "../pages/Dashboard";
-import MyClients from "../pages/MyClients";
+import MyClients from "../pages/Clients/MyClients";
+import ClientDetails from "../pages/Clients/ClientDetails/ClientDetails";
 import Payment from "../pages/Payment";
 import Demo from "../components/Calender";
 import Profile from "../pages/Profile/Profile";
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile />,
+      },
+      {
+        path: "clients/:clientId",
+        element: <ClientDetails />,
       },
     ],
   },

@@ -1,7 +1,7 @@
 // src/components/Header.jsx
-import { useState } from 'react';
-import { FiBell, FiLogOut, FiSearch } from 'react-icons/fi';
-import profilePicture from "../assets/8e2becda16e2f3abc85e162b63a8d214.jpeg"
+import { useState } from "react";
+import { FiBell, FiLogOut, FiSearch } from "react-icons/fi";
+import profilePicture from "../assets/8e2becda16e2f3abc85e162b63a8d214.jpeg";
 
 export default function Header() {
   // eslint-disable-next-line no-unused-vars
@@ -11,8 +11,8 @@ export default function Header() {
     <header className="flex items-center justify-between px-6 py-4 ">
       {/* Left Section - Heading & Subheading */}
       <div className="flex flex-col">
-        <h1 className="text-2xl text-black font-semibold">Dr. Kim</h1>
-        <span className="text-lg text-gray-500">24th Sep. 2024</span>
+        <h1 className="text-2xl text-black font-bold">Dr. Kim</h1>
+        <span className="text-lg color-[#505050]">24th Sep. 2024</span>
       </div>
 
       {/* Middle Section - Search Box with Icon */}
@@ -39,7 +39,9 @@ export default function Header() {
                 alt="User Profile"
                 className="w-10 h-10 rounded-full object-cover"
               />
-              <span className="text-base font-medium text-gray-700">Dr. Kim</span>
+              <span className="text-base font-medium text-gray-700">
+                Dr. Kim
+              </span>
             </>
           ) : (
             <FiLogOut className="text-xl text-gray-600" />

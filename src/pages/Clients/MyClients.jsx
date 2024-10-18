@@ -1,11 +1,11 @@
 // src/pages/MyClients.jsx
 
-import { Slidercomp } from "../components/Slidercomp";
-import Header from "../components/Header";
+import { Slidercomp } from "../../components/Slidercomp";
+import Header from "../../components/Header";
 import { FiSearch } from "react-icons/fi";
 import { RiFilter2Line } from "react-icons/ri";
-import TableHOC from "../components/TableHOC";
-import ClientProfile from "../assets/client-user.png";
+import TableHOC from "../../components/TableHOC";
+import ClientProfile from "../../assets/client-user.png";
 
 const MyClients = () => {
   // Define columns for the TableHOC component
@@ -44,6 +44,7 @@ const MyClients = () => {
 
   // Sample data for the table
   const data = Array(10).fill({
+    id: 1,
     name: "A. Kumar",
     profileImage: ClientProfile, // Example image URL
     ageSex: "23/Male",
@@ -75,7 +76,7 @@ const MyClients = () => {
       </div>
       {/* Table Section */}
       <div className="bg-gray-50 py-8 px-5">
-        <TableHOC columns={columns} data={data} />
+        <TableHOC origin="clients" columns={columns} data={data} />
       </div>
     </section>
   );

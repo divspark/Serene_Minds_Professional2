@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Group, Button, NavLink } from "@mantine/core";
+import { Group, Button, NavLink, Stack, Box, Image } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
 import {
   IconCategory,
@@ -23,6 +23,8 @@ const topData = [
 
 // Main navigation links
 const mainData = [
+  { link: "/", label: "Home", icon: IconCategory },
+  { link: "/appointments", label: "Appointments", icon: IconCalendar },
   { link: "clients", label: "My clients", icon: IconUserCheck },
   { link: "calender", label: "Calendar", icon: IconCalendarEvent },
   { link: "payment", label: "Payments", icon: IconCreditCard },
@@ -37,48 +39,28 @@ export function Slidercomp() {
   const [appointmentsCount, setAppointmentsCount] = useState(0);
 
   return (
-    <nav className={classes.navbar}>
-      <div className={classes.navbarMain}>
-        {/* Header with Logo and "Add New" Button */}
-        <Group className={classes.header} justify="center" align="center">
-          <img src={Logo} className="w-24" alt="Logo" />
-          <Button
-            className="bg-[#3788E5] rounded-lg text-white font-medium px-14 mt-2 py-2"
-            onClick={(e) => e.preventDefault()} // Add your add-new logic here
-          >
-            Add New
-          </Button>
-        </Group>
+    <Box component="nav" px={10}>
+      {/* Header with Logo and "Add New" Button */}
+      <Stack gap={23} align="center" mt={19} mb={25}>
+        <Image w={130} src={Logo} alt="Logo" />
+        <Button
+          size="md"
+          w="70%"
+          radius="md"
+          bg={"#3788E5"}
+          color="#fff"
+          fz="md"
+          fw="bold"
+          onClick={(e) => e.preventDefault()} // Add your add-new logic here
+        >
+          Add New
+        </Button>
+      </Stack>
 
-        {/* Top Links: Home and Appointments */}
-        {/* <div className={classes.linksSection}>
-          {topData.map((item) => (
-            <a
-              className={classes.link}
-              data-active={item.label === active || undefined}
-              href={item.link}
-              key={item.label}
-              onClick={() => handleLinkClick(item.label)}
-            >
-              <item.icon className={classes.linkIcon} stroke={1.5} />
-              <span>
-                {item.label}
-                {item.label === "Appointments" && (
-                  <span className="ml-9 bg-red-500 px-2 py-1 rounded-md text-white">
-                    {appointmentsCount}
-                  </span>
-                )}
-              </span>
-            </a>
-          ))}
-        </div> */}
-
-        {/* Horizontal Separator */}
-        <hr className="my-6 text-slate-700 mx-3 font-extrabold" />
-
-        {/* Main Links */}
-        <div className={classes.linksSection}>
-          {mainData.map((item, index) => (
+      {/* Main Links */}
+      <Stack gap={10}>
+        {mainData.map((item, index) => (
+          <>
             <NavLink
               className={classes.link}
               key={item.label}
@@ -89,12 +71,15 @@ export function Slidercomp() {
                 navigate(item.link);
               }}
               leftSection={
-                <item.icon className={classes.linkIcon} stroke={1.5} />
+                <item.icon className={classes.linkIcon} stroke={1.2} />
               }
             />
-          ))}
-        </div>
-      </div>
+            {index == 1 ? (
+              <hr className="text-slate-700 my-2 mx-3 font-extrabold" />
+            ) : null}
+          </>
+        ))}
+      </Stack>
 
       {/* Footer Links: Log Out */}
       <div className={classes.footer}>
@@ -111,6 +96,6 @@ export function Slidercomp() {
           <span className="text-base font-medium">Log Out</span>
         </a>
       </div>
-    </nav>
+    </Box>
   );
 }

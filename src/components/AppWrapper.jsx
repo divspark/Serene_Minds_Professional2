@@ -1,18 +1,16 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import { Slidercomp } from "./Slidercomp";
-import Poster from "../assets/poster.png";
+import AdBanner from "./Ad/AdBanner";
 export default function AppWrapper() {
   return (
     <main className="flex bg-white h-screen">
-      <aside className="w-1/6 h-ful sticky top-0">
+      <aside className="w-[290px] h-ful sticky top-0">
         <Slidercomp />
       </aside>
-      <div className="flex flex-col h-screen">
+      <div className="flex flex-1 flex-col h-screen">
         <Header />
-        <div className="p-5">
-          <img src={Poster} alt="Poster" className="w-full object-cover" />
-        </div>
+        {window.location.pathname.includes("clients") ? <AdBanner /> : null}
         <Outlet />
       </div>
     </main>

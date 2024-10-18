@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: "Rethink Sans", sans-serif;
+}
+
+.mantine-NavLink-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #0b1c33;
+}
+
+.mantine-NavLink-root[data-active="true"] .mantine-NavLink-label {
+  color: #fff;
+}
+
+.non-padding-card {
+  padding: 0;
+}
