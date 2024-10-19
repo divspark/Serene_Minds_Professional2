@@ -19,3 +19,18 @@ body {
 .non-padding-card {
   padding: 0;
 }
+
+.mantine-Timeline-itemBody {
+  position: relative;
+  top: -2rem;
+}
+
+.mantine-Tabs-tabLabel {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #9995af;
+}
+
+.mantine-Tabs-tab[data-active="true"] .mantine-Tabs-tabLabel {
+  color: #1678f2;
+}

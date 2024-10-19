@@ -5,7 +5,7 @@ import Dashboard from "../pages/Dashboard";
 import MyClients from "../pages/Clients/MyClients";
 import ClientDetails from "../pages/Clients/ClientDetails/ClientDetails";
 import Payment from "../pages/Payment";
-import Demo from "../components/Calender";
+import Demo from "../pages/Demo";
 import Profile from "../pages/Profile/Profile";
 import AppWrapper from "../components/AppWrapper";
 const router = createBrowserRouter([

@@ -1,6 +1,8 @@
 // src/components/Header.jsx
 import { useState } from "react";
+import { ActionIcon } from "@mantine/core";
 import { FiBell, FiLogOut, FiSearch } from "react-icons/fi";
+import { NotificationBell } from "../assets/icons/icons";
 import profilePicture from "../assets/8e2becda16e2f3abc85e162b63a8d214.jpeg";
 
 export default function Header() {
@@ -28,7 +30,9 @@ export default function Header() {
       {/* Right Section - Notification & User Info */}
       <div className="flex items-center gap-6">
         {/* Notification Bell */}
-        <FiBell className="text-2xl text-gray-600 cursor-pointer" />
+        <ActionIcon variant="white" size="lg">
+          <NotificationBell />
+        </ActionIcon>
 
         {/* User Info or Logged Out State */}
         <button className="flex items-center gap-2 px-4 py-2 border rounded-xl hover:bg-gray-200">

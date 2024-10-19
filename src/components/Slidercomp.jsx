@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Group, Button, NavLink, Stack, Box, Image } from "@mantine/core";
+import { Button, NavLink, Stack, Box, Image } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
 import {
   IconCategory,
@@ -14,12 +14,6 @@ import {
 } from "@tabler/icons-react"; // Importing Tabler icons
 import classes from "../../styles/NavbarSimple.module.css";
 import Logo from "../assets/Logo-black.png";
-
-// Top navigation links
-const topData = [
-  { link: "", label: "Home", icon: IconCategory },
-  { link: "/appointments", label: "Appointments", icon: IconCalendar },
-];
 
 // Main navigation links
 const mainData = [
@@ -36,7 +30,6 @@ const mainData = [
 export function Slidercomp() {
   const navigate = useNavigate();
   const [active, setActive] = useState(0);
-  const [appointmentsCount, setAppointmentsCount] = useState(0);
 
   return (
     <Box component="nav" px={10}>
