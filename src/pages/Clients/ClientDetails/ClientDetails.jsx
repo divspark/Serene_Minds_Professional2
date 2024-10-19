@@ -3,6 +3,7 @@ import ClientInfoCard from "../../../components/ClientDetails/ClientInfoCard";
 import NotesCard from "../../../components/ClientDetails/NotesCard";
 import ClientTimeline from "../../../components/ClientDetails/ClientTimeline";
 import InvoiceList from "../../../components/ClientDetails/InvoiceList";
+import HealthAssessmentList from "../../../components/ClientDetails/HealthAssessment";
 
 const TABS = [
   {
@@ -37,22 +38,29 @@ export default function ClientDetails() {
           <NotesCard />
         </Box>
       </Flex>
-      <Title order={2}>Appointments</Title>
-      <Tabs radius="md" defaultValue="upcoming">
-        <Tabs.List>
-          {TABS.map((tab) => (
-            <Tabs.Tab key={tab.value} value={tab.value}>
-              {tab.label}
-            </Tabs.Tab>
-          ))}
-        </Tabs.List>
+      <Flex justify="space-between" p="sm">
+        <Stack flex={1}>
+          <Title order={2}>Appointments</Title>
+          <Tabs radius="md" defaultValue="upcoming">
+            <Tabs.List>
+              {TABS.map((tab) => (
+                <Tabs.Tab key={tab.value} value={tab.value}>
+                  {tab.label}
+                </Tabs.Tab>
+              ))}
+            </Tabs.List>
 
-        {TABS.map((tab) => (
-          <Tabs.Panel p="sm" key={tab.value} value={tab.value}>
-            {tab.component}
-          </Tabs.Panel>
-        ))}
-      </Tabs>
+            {TABS.map((tab) => (
+              <Tabs.Panel p="sm" key={tab.value} value={tab.value}>
+                {tab.component}
+              </Tabs.Panel>
+            ))}
+          </Tabs>
+        </Stack>
+        <Box flex={0.3}>
+          <HealthAssessmentList />
+        </Box>
+      </Flex>
     </Stack>
   );
 }
