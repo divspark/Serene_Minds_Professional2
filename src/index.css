@@ -34,3 +34,7 @@ body {
 .mantine-Tabs-tab[data-active="true"] .mantine-Tabs-tabLabel {
   color: #1678f2;
 }
+
+.mantine-Tabs-list::before {
+  display: none;
+}

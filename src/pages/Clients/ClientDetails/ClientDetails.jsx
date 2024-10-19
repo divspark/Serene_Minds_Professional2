@@ -48,7 +48,7 @@ export default function ClientDetails() {
         </Tabs.List>
 
         {TABS.map((tab) => (
-          <Tabs.Panel key={tab.value} value={tab.value}>
+          <Tabs.Panel p="sm" key={tab.value} value={tab.value}>
             {tab.component}
           </Tabs.Panel>
         ))}
