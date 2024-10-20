@@ -8,6 +8,7 @@ import Payment from "../pages/Payment";
 import Demo from "../pages/Demo";
 import Profile from "../pages/Profile/Profile";
 import AppWrapper from "../components/AppWrapper";
+import AppointmentPage from "../pages/Appointment/Appointment";
 const router = createBrowserRouter([
   {
     path: "/login",
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         element: <Dashboard />,
         index: true,
+      },
+      {
+        element: <AppointmentPage />,
+        path: "appointments",
       },
       {
         path: "calender",

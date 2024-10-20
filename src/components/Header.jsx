@@ -1,12 +1,13 @@
 // src/components/Header.jsx
 import { useState } from "react";
 import { ActionIcon } from "@mantine/core";
+import { useToggle } from "@mantine/hooks";
 import { FiBell, FiLogOut, FiSearch } from "react-icons/fi";
 import { NotificationBell } from "../assets/icons/icons";
 import profilePicture from "../assets/8e2becda16e2f3abc85e162b63a8d214.jpeg";
 
 export default function Header() {
-  // eslint-disable-next-line no-unused-vars
+  const [toggleStates, toggle] = useToggle(["open", "close"]);
   const [isLoggedIn, setIsLoggedIn] = useState(true); // Toggle for login/logout
 
   return (
@@ -27,9 +28,7 @@ export default function Header() {
         <FiSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500" />
       </div>
 
-      {/* Right Section - Notification & User Info */}
       <div className="flex items-center gap-6">
-        {/* Notification Bell */}
         <ActionIcon variant="white" size="lg">
           <NotificationBell />
         </ActionIcon>

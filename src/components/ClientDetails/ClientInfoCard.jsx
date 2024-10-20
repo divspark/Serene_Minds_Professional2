@@ -14,7 +14,7 @@ import {
   BanUser,
   TransferClient,
   ClientMessage,
-  ClientHangout,
+  ClientHangoutDisabled,
 } from "../../assets/icons/icons";
 
 export const LabelValueCombo = (label, value) => (
@@ -57,7 +57,7 @@ export default function ClientInfoCard() {
               <ClientMessage stroke={1.5} />
             </ActionIcon>
             <ActionIcon flex={1} variant="white" aria-label="Transfer Client">
-              <ClientHangout stroke={1.5} />
+              <ClientHangoutDisabled stroke={1.5} />
             </ActionIcon>
           </Flex>
         </Stack>
