@@ -11,10 +11,10 @@
   },
   "dependencies": {
     "@ericz1803/react-google-calendar": "^4.3.2",
-    "@mantine/charts": "^7.13.2",
     "@mantine/core": "^7.13.2",
     "@mantine/dates": "^7.13.2",
     "@mantine/hooks": "^7.13.2",
+    "@mantine/modals": "^7.13.3",
     "@reduxjs/toolkit": "^2.2.7",
     "@tabler/icons-react": "^3.19.0",
     "@tanstack/react-table": "^8.20.5",

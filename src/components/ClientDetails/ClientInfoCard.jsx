@@ -10,6 +10,7 @@ import {
   Avatar,
   ActionIcon,
 } from "@mantine/core";
+import { modals } from "@mantine/modals";
 import {
   BanUser,
   TransferClient,
@@ -26,6 +27,19 @@ export const LabelValueCombo = (label, value) => (
   </Stack>
 );
 export default function ClientInfoCard() {
+  const openModal = () =>
+    modals.openConfirmModal({
+      title: "Please confirm your action",
+      children: (
+        <Text size="sm">
+          This action is so important that you are required to confirm it with a
+          modal. Please click one of these buttons to proceed.
+        </Text>
+      ),
+      labels: { confirm: "Confirm", cancel: "Cancel" },
+      onCancel: () => console.log("Cancel"),
+      onConfirm: () => console.log("Confirmed"),
+    });
   return (
     <Card className="non-padding-card" shadow="xs" radius="lg" withBorder>
       <Flex>
@@ -61,13 +75,20 @@ export default function ClientInfoCard() {
             </ActionIcon>
           </Flex>
         </Stack>
-
         <Stack justify="flex-start" p={10} flex={1}>
           <Flex gap={20} align="center" px={20} justify="flex-end">
-            <ActionIcon variant="white" aria-label="Transfer Client">
+            <ActionIcon
+              onClick={() => openModal()}
+              variant="white"
+              aria-label="Transfer Client"
+            >
               <TransferClient stroke={1.5} />
             </ActionIcon>
-            <ActionIcon variant="white" aria-label="Ban User">
+            <ActionIcon
+              onClick={() => openModal()}
+              variant="white"
+              aria-label="Ban User"
+            >
               <BanUser stroke={1.5} />
             </ActionIcon>
           </Flex>
