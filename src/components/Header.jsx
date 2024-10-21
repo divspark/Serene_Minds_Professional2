@@ -19,7 +19,7 @@ export default function Header() {
       </div>
 
       {/* Middle Section - Search Box with Icon */}
-      <div className="relative w-1/3">
+      <div className="relative w-96">
         <input
           type="text"
           placeholder="Search..."

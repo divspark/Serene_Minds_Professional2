@@ -5,7 +5,8 @@ import Dashboard from "../pages/Dashboard";
 import MyClients from "../pages/Clients/MyClients";
 import ClientDetails from "../pages/Clients/ClientDetails/ClientDetails";
 import Payment from "../pages/Payment";
-import Demo from "../pages/Demo";
+import CalendarPage from "../pages/CalendarPage";
+import JournalPage from "../pages/JournalPage/JournalPage";
 import Profile from "../pages/Profile/Profile";
 import AppWrapper from "../components/AppWrapper";
 import AppointmentPage from "../pages/Appointment/Appointment";
@@ -32,11 +33,11 @@ const router = createBrowserRouter([
       },
       {
         path: "calender",
-        element: <Demo />,
+        element: <CalendarPage />,
       },
       {
         path: "journal",
-        element: <Demo />,
+        element: <JournalPage />,
       },
       {
         path: "settings",

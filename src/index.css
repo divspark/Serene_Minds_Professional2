@@ -38,3 +38,11 @@ body {
 .mantine-Tabs-list::before {
   display: none;
 }
+
+#appointment-tabs {
+  justify-content: flex-start;
+}
+#appointment-tabs .mantine-Tabs-tabLabel {
+  font-size: 1rem !important;
+  font-weight: 600;
+}

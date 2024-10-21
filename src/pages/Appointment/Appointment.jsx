@@ -20,9 +20,9 @@ const TABS = [
 export default function AppointmentPage() {
   return (
     <Tabs radius="md" defaultValue="upcoming">
-      <Tabs.List>
+      <Tabs.List id="appointment-tabs">
         {TABS.map((tab) => (
-          <Tabs.Tab key={tab.value} value={tab.value}>
+          <Tabs.Tab className="mr-2" key={tab.value} value={tab.value}>
             {tab.label}
           </Tabs.Tab>
         ))}

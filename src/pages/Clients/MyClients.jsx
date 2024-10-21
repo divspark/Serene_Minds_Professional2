@@ -1,9 +1,4 @@
-// src/pages/MyClients.jsx
-
-import { Slidercomp } from "../../components/Slidercomp";
-import Header from "../../components/Header";
-import { FiSearch } from "react-icons/fi";
-import { RiFilter2Line } from "react-icons/ri";
+import { ScrollArea } from "@mantine/core";
 import TableHOC from "../../components/TableHOC";
 import ClientProfile from "../../assets/client-user.png";
 
@@ -63,18 +58,17 @@ const MyClients = () => {
             placeholder="Search for clients"
             className="w-full py-3 pl-4 pr-10 text-sm bg-[#F4F4F4] border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-          <FiSearch className="absolute right-3 top-3.5 text-gray-500" />
         </div>
 
         {/* Filter Button with Dropdown */}
         <div className="relative flex">
           <button className="flex items-center gap-2 outline outline-1 py-2 px-4 text-base font-medium bg-white text-black rounded-xl">
             Filter
-            <RiFilter2Line className="w-5 h-5" />
           </button>
         </div>
       </div>
       {/* Table Section */}
+
       <div className="bg-gray-50 py-8 px-5">
         <TableHOC origin="clients" columns={columns} data={data} />
       </div>
