@@ -46,7 +46,7 @@ export const AboutMe = () => {
         </div>
       </Modal>
 
-      <div className="about-us flex flex-col justify-center w-[728px] h-[140px] shadow-md border border-gray-300 p-4 relative top-[-150px] rounded-lg">
+      <div className="about-us flex flex-col justify-center w-[728px] h-[140px] shadow-md border border-gray-300 p-4 rounded-lg">
         <Group justify="space-between">
           <Text fw={600} fz={20}>
             About me

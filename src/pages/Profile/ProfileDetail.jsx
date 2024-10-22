@@ -34,38 +34,40 @@ export const ProfileDetails = () => {
           alt="bg-image"
           className="w-[728px] h-[140px] rounded-t-lg mt-3 border-none"
         />
-        <img
-          src={profilePhoto}
-          alt="manager"
-          className="bg-blue-500 rounded-full w-[150px] h-[150px] relative top-[-70px] left-7 border-8 border-white"
-        />
-        <div className="flex flex-1 relative top-[-150px] mb-4 w-[728px] h-[140px] rounded-b-lg shadow-md">
-          <div className="flex-1 pshyc-details ml-56 p-3">
-            <Text c="#25324B" fw={700} fz={24}>
-              {name}
-            </Text>
-            <Text fw={400} fz={18} c="#7C8493">
-              Clinical Psychologist
-            </Text>
-            <Text
-              className="flex items-center gap-1"
-              fw={400}
-              fz={18}
-              c="#7C8493"
-            >
-              <CiLocationOn />
-              {location}
-            </Text>
+        <Flex className="rounded-b-lg shadow-md">
+          <img
+            src={profilePhoto}
+            alt="manager"
+            className="bg-blue-500 rounded-full w-[120px] h-[120px] relative bottom-10 left-7 border-8 border-white"
+          />
+          <div className="flex flex-1 ml-10">
+            <div className="flex-1 pshyc-details p-3">
+              <Text c="#25324B" fw={700} fz={24}>
+                {name}
+              </Text>
+              <Text fw={400} fz={18} c="#7C8493">
+                Clinical Psychologist
+              </Text>
+              <Text
+                className="flex items-center gap-1"
+                fw={400}
+                fz={18}
+                c="#7C8493"
+              >
+                <CiLocationOn />
+                {location}
+              </Text>
+            </div>
+            <Flex mt={20} gap={10} className="px-3">
+              <Button size="sm" variant="outline">
+                <Text fw={600}>Edit Profile</Text>
+              </Button>
+              <Button size="sm" variant="outline">
+                <Text fw={600}>Share Profile</Text>
+              </Button>
+            </Flex>
           </div>
-          <Flex mt={20} gap={10} className="px-3">
-            <Button size="sm" variant="outline">
-              <Text fw={600}>Edit Profile</Text>
-            </Button>
-            <Button size="sm" variant="outline">
-              <Text fw={600}>Share Profile</Text>
-            </Button>
-          </Flex>
-        </div>
+        </Flex>
       </div>
 
       {/* Modal for editing profile */}

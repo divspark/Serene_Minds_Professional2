@@ -3,7 +3,7 @@ import { Tabs } from "@mantine/core";
 import { IoAddOutline } from "react-icons/io5";
 import { useDisclosure } from "@mantine/hooks";
 import { AboutMe } from "./AboutMe";
-import DayAvailability from "./DayAvailability";
+import Availability from "./Availability";
 import { NewServices } from "./NewServices";
 import { NewEducation } from "./NewEducation";
 import { ProfileDetails } from "./ProfileDetail";
@@ -41,7 +41,7 @@ export const Profile = () => {
           </div>
 
           <Tabs.Panel value="shareable">
-            <div className="container-5 flex  flex-col justify-center">
+            <div className="container-5 flex flex-col gap-5 justify-center">
               <ProfileDetails />
 
               <AboutMe />
@@ -49,22 +49,8 @@ export const Profile = () => {
               {/* <NewEducation />
 
               <NewServices /> */}
-
-              <div className="services w-[728px] border border-gray-300 p-4 mt-5 relative  top-[-150px] rounded-lg">
-                <div className="flex justify-between ml-4">
-                  <h2 className="text-lg text-[#25324B] font-semibold mb-2">
-                    Availability
-                  </h2>
-                </div>
-
-                <DayAvailability day="Mon" />
-                <DayAvailability day="Tue" />
-                <DayAvailability day="Wed" />
-                <DayAvailability day="Thu" />
-                <DayAvailability day="Fri" />
-              </div>
-
-              <div className="services w-[728px] border border-gray-300 p-4 mt-5 relative  top-[-150px] rounded-lg">
+              <Availability />
+              {/* <div className="services w-[728px] border border-gray-300 p-4 mt-5 relative  top-[-150px] rounded-lg">
                 <div className="flex justify-between ml-4">
                   <h2 className="text-lg text-[#25324B] font-semibold mb-2s">
                     Payment
@@ -74,7 +60,7 @@ export const Profile = () => {
                 <h2 className="text-2xl text-[#2A2A2A] font-semibold mb-2 ml-4">
                   INR 700/session
                 </h2>
-              </div>
+              </div> */}
             </div>
           </Tabs.Panel>
 
