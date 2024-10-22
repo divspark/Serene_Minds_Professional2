@@ -47,7 +47,7 @@ body {
   font-weight: 600;
 }
 
-.mantine-Button-root {
+.mantine-Button-root.primary {
   background: linear-gradient(
     96.14deg,
     #3a8ef6 -10.84%,

@@ -9,6 +9,8 @@ import {
   Avatar,
   ActionIcon,
   Button,
+  Select,
+  Image,
 } from "@mantine/core";
 import { modals } from "@mantine/modals";
 import {
@@ -18,6 +20,7 @@ import {
   ClientHangoutDisabled,
 } from "../../assets/icons/icons";
 import { LabelValueCombo } from "../HelperComponents";
+import BanUserModalIcon from "../../assets/banusermodalicon.svg";
 
 export default function ClientInfoCard() {
   const openTransferModal = () =>
@@ -30,12 +33,12 @@ export default function ClientInfoCard() {
       ),
       children: (
         <>
-          <Text size="sm">
-            This action is so important that you are required to confirm it with
-            a modal. Please click one of these buttons to proceed.
-          </Text>
+          <Select
+            label="Name of the professional"
+            data={["A", "B", "C", "D"]}
+          />
           <Group justify="center" mt="md">
-            <Button size="md" radius="xl">
+            <Button className="primary" size="md" radius="xl">
               Send Request
             </Button>
           </Group>
@@ -45,17 +48,30 @@ export default function ClientInfoCard() {
 
   const openBanUser = () =>
     modals.open({
-      size: "xl",
+      size: "lg",
       title: (
         <Text fw={500} fz={22}>
           Ban user
         </Text>
       ),
       children: (
-        <Text size="sm">
-          This action is so important that you are required to confirm it with a
-          modal. Please click one of these buttons to proceed.
-        </Text>
+        <Stack>
+          <Group justify="center">
+            <Image w={100} src={BanUserModalIcon} alt="ban user" />
+          </Group>
+          <Text className="text-center" fw={400} fz={18}>
+            Are you sure you want to ban Asit Kumar? <br />
+            If you ban, the user will be removed from your clients list.
+          </Text>
+          <Flex gap={20} justify="center">
+            <Button radius="lg" className="primary">
+              Close
+            </Button>
+            <Button radius="lg" variant="outline" color="red">
+              Ban Account
+            </Button>
+          </Flex>
+        </Stack>
       ),
     });
   return (

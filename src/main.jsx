@@ -10,7 +10,7 @@ import "./index.css";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <MantineProvider>
-      <ModalsProvider>
+      <ModalsProvider modalProps={{ withCloseButton: false }}>
         <App />
       </ModalsProvider>
     </MantineProvider>
