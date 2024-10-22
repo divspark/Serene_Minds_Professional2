@@ -7,15 +7,44 @@ import {
   Stack,
   Group,
   Badge,
+  Textarea,
+  Button,
 } from "@mantine/core";
+import { modals } from "@mantine/modals";
 import {
   ClientHangoutDisabled,
   ClientHangoutEnabled,
   ClientMessage,
   ExpandContentBlack,
 } from "../../assets/icons/icons";
+import AppointmentDetailsModal from "./AppointmentDetailsModal";
 import profilePicture from "../../assets/8e2becda16e2f3abc85e162b63a8d214.jpeg";
 export default function AppointmentCard({ isUpcoming }) {
+  const openClientMessage = () =>
+    modals.open({
+      size: "xl",
+      title: (
+        <Text fw={500} fz={22}>
+          Send message to J. Gustaven
+        </Text>
+      ),
+      children: (
+        <div>
+          <Textarea autosize={true} placeholder="Enter message here..." />
+          <Group justify="center" mt={20}>
+            <Button radius="lg" className="primary">
+              Send message
+            </Button>
+          </Group>
+        </div>
+      ),
+    });
+  const openAppointmentDetails = () =>
+    modals.open({
+      size: "xl",
+      children: <AppointmentDetailsModal />,
+    });
+
   return (
     <Card
       className={`${isUpcoming ? "border-2 border-gray-300" : ""}`}
@@ -37,7 +66,7 @@ export default function AppointmentCard({ isUpcoming }) {
               23 / Male
             </Text>
             <Flex flex={1} gap={10} align="center" justify="end">
-              <ActionIcon size="lg" variant="white">
+              <ActionIcon onClick={openClientMessage} size="lg" variant="white">
                 <ClientMessage />
               </ActionIcon>
               <ActionIcon size="lg" variant="white">
@@ -47,7 +76,12 @@ export default function AppointmentCard({ isUpcoming }) {
           </Flex>
         </Stack>
       </Flex>
-      <ActionIcon className="absolute top-0 right-2" size="lg" variant="white">
+      <ActionIcon
+        onClick={openAppointmentDetails}
+        className="absolute top-0 right-2"
+        size="lg"
+        variant="white"
+      >
         <ExpandContentBlack />
       </ActionIcon>
       {isUpcoming ? (

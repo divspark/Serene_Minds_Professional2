@@ -60,3 +60,8 @@ body {
 .mantine-Button-root:hover {
   opacity: 0.88;
 }
+
+.mantine-Textarea-wrapper,
+textarea {
+  height: 100% !important;
+}
