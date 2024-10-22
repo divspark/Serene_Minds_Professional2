@@ -37,11 +37,10 @@ export function Slidercomp() {
       <Stack gap={23} align="center" mt={19} mb={25}>
         <Image w={130} src={Logo} alt="Logo" />
         <Button
+          className="primary"
           size="md"
           w="70%"
           radius="md"
-          bg={"#3788E5"}
-          color="#fff"
           fz="md"
           fw="bold"
           onClick={(e) => e.preventDefault()} // Add your add-new logic here

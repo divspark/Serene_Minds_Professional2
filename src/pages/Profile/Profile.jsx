@@ -1,11 +1,7 @@
-import React, { useState } from "react";
-import { Tabs, rem } from "@mantine/core";
-import { CiEdit, CiStar } from "react-icons/ci";
+import { useState } from "react";
+import { Tabs } from "@mantine/core";
 import { IoAddOutline } from "react-icons/io5";
-import { RiDeleteBin6Line } from "react-icons/ri";
 import { useDisclosure } from "@mantine/hooks";
-import { Modal, Button } from "@mantine/core";
-import { Select } from "@mantine/core";
 import { AboutMe } from "./AboutMe";
 import DayAvailability from "./DayAvailability";
 import { NewServices } from "./NewServices";
@@ -50,9 +46,9 @@ export const Profile = () => {
 
               <AboutMe />
 
-              <NewEducation />
+              {/* <NewEducation />
 
-              <NewServices />
+              <NewServices /> */}
 
               <div className="services w-[728px] border border-gray-300 p-4 mt-5 relative  top-[-150px] rounded-lg">
                 <div className="flex justify-between ml-4">

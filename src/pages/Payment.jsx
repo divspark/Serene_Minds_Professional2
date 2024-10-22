@@ -1,5 +1,4 @@
-import { Slidercomp } from "../components/Slidercomp";
-import Header from "../components/Header";
+import { Button } from "@mantine/core";
 import { FaCirclePlus } from "react-icons/fa6";
 import Chart from "../components/Chart";
 
@@ -9,9 +8,9 @@ const Payment = () => {
       {/* Header with Title and Add Payments Button */}
       <div className="flex justify-between items-center mx-7 mb-6">
         <h1 className="text-xl text-black font-medium">Payments</h1>
-        <button className="bg-[#3788E5] px-4 py-2 flex text-sm font-light text-white flex-row justify-center items-center">
+        <Button className="primary">
           Add Payments <FaCirclePlus className="ml-2" />
-        </button>
+        </Button>
       </div>
 
       {/* Chart Section */}
