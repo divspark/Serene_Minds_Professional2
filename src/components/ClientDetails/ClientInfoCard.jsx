@@ -5,10 +5,10 @@ import {
   Text,
   Divider,
   Stack,
-  Button,
   SimpleGrid,
   Avatar,
   ActionIcon,
+  Button,
 } from "@mantine/core";
 import { modals } from "@mantine/modals";
 import {
@@ -17,28 +17,46 @@ import {
   ClientMessage,
   ClientHangoutDisabled,
 } from "../../assets/icons/icons";
+import { LabelValueCombo } from "../HelperComponents";
 
-export const LabelValueCombo = (label, value) => (
-  <Stack gap={1} align="flex-start">
-    <Text fz="sm" fw="bold">
-      {label}
-    </Text>
-    <Text fz="sm">{value}</Text>
-  </Stack>
-);
 export default function ClientInfoCard() {
-  const openModal = () =>
-    modals.openConfirmModal({
-      title: "Please confirm your action",
+  const openTransferModal = () =>
+    modals.open({
+      size: "xl",
+      title: (
+        <Text fw={500} fz={22}>
+          Transfer user to other professional
+        </Text>
+      ),
+      children: (
+        <>
+          <Text size="sm">
+            This action is so important that you are required to confirm it with
+            a modal. Please click one of these buttons to proceed.
+          </Text>
+          <Group justify="center" mt="md">
+            <Button size="md" radius="xl">
+              Send Request
+            </Button>
+          </Group>
+        </>
+      ),
+    });
+
+  const openBanUser = () =>
+    modals.open({
+      size: "xl",
+      title: (
+        <Text fw={500} fz={22}>
+          Ban user
+        </Text>
+      ),
       children: (
         <Text size="sm">
           This action is so important that you are required to confirm it with a
           modal. Please click one of these buttons to proceed.
         </Text>
       ),
-      labels: { confirm: "Confirm", cancel: "Cancel" },
-      onCancel: () => console.log("Cancel"),
-      onConfirm: () => console.log("Confirmed"),
     });
   return (
     <Card className="non-padding-card" shadow="xs" radius="lg" withBorder>
@@ -78,14 +96,14 @@ export default function ClientInfoCard() {
         <Stack justify="flex-start" p={10} flex={1}>
           <Flex gap={20} align="center" px={20} justify="flex-end">
             <ActionIcon
-              onClick={() => openModal()}
+              onClick={openTransferModal}
               variant="white"
               aria-label="Transfer Client"
             >
               <TransferClient stroke={1.5} />
             </ActionIcon>
             <ActionIcon
-              onClick={() => openModal()}
+              onClick={openBanUser}
               variant="white"
               aria-label="Ban User"
             >

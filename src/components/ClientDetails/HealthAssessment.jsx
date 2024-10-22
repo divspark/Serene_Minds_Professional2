@@ -1,6 +1,6 @@
 import { Stack, ActionIcon, Flex, Card, Text } from "@mantine/core";
 import { ExpandContent } from "../../assets/icons/icons";
-import { LabelValueCombo } from "./ClientInfoCard";
+import { LabelValueCombo } from "../HelperComponents";
 export default function HealthAssessmentList() {
   return (
     <Card

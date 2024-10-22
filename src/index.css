@@ -46,3 +46,17 @@ body {
   font-size: 1rem !important;
   font-weight: 600;
 }
+
+.mantine-Button-root {
+  background: linear-gradient(
+    96.14deg,
+    #3a8ef6 -10.84%,
+    #6f3afa 196.74%
+  ) !important;
+  box-shadow: 0px 8px 23px 0px #4184f73d !important;
+  transition: opacity 0.1s ease-in !important;
+}
+
+.mantine-Button-root:hover {
+  opacity: 0.88;
+}

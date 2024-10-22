@@ -1,6 +1,6 @@
 import { Timeline, Text, Card, Flex } from "@mantine/core";
 import { TimelineDot } from "../../assets/icons/icons";
-import { LabelValueCombo } from "./ClientInfoCard";
+import { LabelValueCombo } from "../HelperComponents";
 export default function ClientTimeline() {
   return (
     <Timeline active={3} lineWidth={2} p="xl">
