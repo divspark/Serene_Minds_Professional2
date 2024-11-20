@@ -1,8 +1,7 @@
-import { useState } from "react";
-import { ActionIcon } from "@mantine/core";
+import React, { useState } from 'react';
 import { useDisclosure } from "@mantine/hooks";
-import { Modal, Text, Group } from "@mantine/core";
-import { EditProfileSection } from "../../assets/icons/icons";
+import { Modal } from "@mantine/core";
+import { CiEdit } from "react-icons/ci";
 
 export const AboutMe = () => {
   const [opened, { open, close }] = useDisclosure(false);
@@ -46,17 +45,14 @@ export const AboutMe = () => {
         </div>
       </Modal>
 
-      <div className="about-us flex flex-col justify-center w-[728px] h-[140px] shadow-md border border-gray-300 p-4 rounded-lg">
-        <Group justify="space-between">
-          <Text fw={600} fz={20}>
-            About me
-          </Text>
-          <ActionIcon variant="transparent">
-            <EditProfileSection />
-          </ActionIcon>
-        </Group>
-        <p className="text-[#515B6F] font-normal mt-3">{bio}</p>{" "}
-        {/* Display the current bio */}
+      <div className="about-us flex flex-col justify-center w-[728px] h-[140px]  border border-gray-300 p-4 relative top-[-150px] rounded-lg">
+        <div className="flex justify-between ml-2">
+          <h2 className="text-lg text-[#25324B] font-semibold mb-2">About Me</h2>
+          <button onClick={open}>
+            <CiEdit style={{ color: "blue", fontSize: "24px" }} />
+          </button>
+        </div>
+        <p className='text-[#515B6F] font-normal'>{bio}</p> {/* Display the current bio */}
       </div>
     </>
   );

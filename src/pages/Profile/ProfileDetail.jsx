@@ -1,7 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useDisclosure } from "@mantine/hooks";
-import { Modal, Button, Flex, Text } from "@mantine/core";
-import { CiLocationOn } from "react-icons/ci";
+import { Modal } from "@mantine/core";
 
 export const ProfileDetails = () => {
   const [opened, { open, close }] = useDisclosure(false);
@@ -34,40 +33,35 @@ export const ProfileDetails = () => {
           alt="bg-image"
           className="w-[728px] h-[140px] rounded-t-lg mt-3 border-none"
         />
-        <Flex className="rounded-b-lg shadow-md">
-          <img
-            src={profilePhoto}
-            alt="manager"
-            className="bg-blue-500 rounded-full w-[120px] h-[120px] relative bottom-10 left-7 border-8 border-white"
-          />
-          <div className="flex flex-1 ml-10">
-            <div className="flex-1 pshyc-details p-3">
-              <Text c="#25324B" fw={700} fz={24}>
-                {name}
-              </Text>
-              <Text fw={400} fz={18} c="#7C8493">
-                Clinical Psychologist
-              </Text>
-              <Text
-                className="flex items-center gap-1"
-                fw={400}
-                fz={18}
-                c="#7C8493"
-              >
-                <CiLocationOn />
-                {location}
-              </Text>
-            </div>
-            <Flex mt={20} gap={10} className="px-3">
-              <Button size="sm" variant="outline">
-                <Text fw={600}>Edit Profile</Text>
-              </Button>
-              <Button size="sm" variant="outline">
-                <Text fw={600}>Share Profile</Text>
-              </Button>
-            </Flex>
+        <img
+          src={profilePhoto}
+          alt="manager"
+          className="bg-blue-500 rounded-full w-[150px] h-[150px] relative top-[-70px] left-7 border-8 border-white"
+        />
+        <div className="flex relative top-[-150px] mb-4 w-[728px] h-[140px] rounded-b-lg shadow-md">
+          <div className="pshyc-details ml-56 p-3">
+            <h2 className="text-xl font-semibold p-1">{name}</h2>
+            <p className="p-1 text-gray-500">Clinical Psychologist</p>
+            <p className="p-1 text-gray-500">{location}</p>
           </div>
-        </Flex>
+          <div className="p-5 ml-10">
+            <button
+              onClick={open}
+              className="border border-[#1678F2] text-[#1678F2] rounded-lg py-1 px-3 mr-3"
+            >
+              Edit Profile
+            </button>
+            <button
+              className="border border-[#1678F2] text-[#1678F2] rounded-lg py-1 px-3"
+              onClick={() => {
+                navigator.clipboard.writeText(window.location.href);
+                alert("Profile URL copied to clipboard!");
+              }}
+            >
+              Share Profile
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Modal for editing profile */}

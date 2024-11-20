@@ -31,6 +31,10 @@ export function Slidercomp() {
   const navigate = useNavigate();
   const [active, setActive] = useState(0);
 
+  const handleBtnClick = () => {
+    navigate("/clients/new");
+  };
+
   return (
     <Box component="nav" px={10}>
       {/* Header with Logo and "Add New" Button */}
@@ -43,7 +47,7 @@ export function Slidercomp() {
           radius="md"
           fz="md"
           fw="bold"
-          onClick={(e) => e.preventDefault()} // Add your add-new logic here
+          onClick={handleBtnClick} // Add your add-new logic here
         >
           Add New
         </Button>

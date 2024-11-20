@@ -1,63 +1,138 @@
+import React, { Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { SigninProfessional } from "../pages/SignInProfessional/SigninProfessional";
-import { Register } from "../pages/Onboarding/Register";
-import Dashboard from "../pages/Dashboard";
-import MyClients from "../pages/Clients/MyClients";
-import ClientDetails from "../pages/Clients/ClientDetails/ClientDetails";
-import Payment from "../pages/Payment";
-import CalendarPage from "../pages/CalendarPage";
-import JournalPage from "../pages/JournalPage/JournalPage";
-import Profile from "../pages/Profile/Profile";
+import { Loader, Center } from "@mantine/core"; // Import Mantine components
 import AppWrapper from "../components/AppWrapper";
-import AppointmentPage from "../pages/Appointment/Appointment";
+
+// Lazy import pages
+const SigninProfessional = React.lazy(() =>
+  import("../pages/SignInProfessional/SigninProfessional")
+);
+const Register = React.lazy(() => import("../pages/Onboarding/Register"));
+const Dashboard = React.lazy(() => import("../pages/Dashboard"));
+const MyClients = React.lazy(() => import("../pages/Clients/MyClients"));
+const ClientDetails = React.lazy(() =>
+  import("../pages/Clients/ClientDetails/ClientDetails")
+);
+const Payment = React.lazy(() => import("../pages/Payment"));
+const CalendarPage = React.lazy(() => import("../pages/CalendarPage"));
+const JournalPage = React.lazy(() => import("../pages/JournalPage/JournalPage"));
+const Profile = React.lazy(() => import("../pages/Profile/Profile"));
+const AppointmentPage = React.lazy(() =>
+  import("../pages/Appointment/Appointment")
+);
+const ClientAppointment = React.lazy(() =>
+  import("../pages/ClientAppointment/ClientAppointment")
+);
+const Settings = React.lazy(() => import("../pages/SettingsPage/Settings"));
+
+// Loader fallback component
+const LoaderFallback = () => (
+  <Center style={{ height: "100vh" }}>
+    <Loader size="xl" />
+  </Center>
+);
+
+// Define the router
 const router = createBrowserRouter([
   {
     path: "/login",
-    element: <SigninProfessional />,
+    element: (
+      <Suspense fallback={<LoaderFallback />}>
+        <SigninProfessional />
+      </Suspense>
+    ),
   },
   {
     path: "/register",
-    element: <Register />,
+    element: (
+      <Suspense fallback={<LoaderFallback />}>
+        <Register />
+      </Suspense>
+    ),
   },
   {
     path: "/",
     element: <AppWrapper />,
     children: [
       {
-        element: <Dashboard />,
+        element: (
+          <Suspense fallback={<LoaderFallback />}>
+            <Dashboard />
+          </Suspense>
+        ),
         index: true,
       },
       {
-        element: <AppointmentPage />,
+        element: (
+          <Suspense fallback={<LoaderFallback />}>
+            <AppointmentPage />
+          </Suspense>
+        ),
         path: "appointments",
       },
       {
         path: "calender",
-        element: <CalendarPage />,
+        element: (
+          <Suspense fallback={<LoaderFallback />}>
+            <CalendarPage />
+          </Suspense>
+        ),
       },
       {
         path: "journal",
-        element: <JournalPage />,
+        element: (
+          <Suspense fallback={<LoaderFallback />}>
+            <JournalPage />
+          </Suspense>
+        ),
       },
       {
         path: "settings",
-        element: <Dashboard />,
+        element: (
+          <Suspense fallback={<LoaderFallback />}>
+            <Settings />
+          </Suspense>
+        ),
       },
       {
         path: "clients",
-        element: <MyClients />,
+        element: (
+          <Suspense fallback={<LoaderFallback />}>
+            <MyClients />
+          </Suspense>
+        ),
       },
       {
         path: "payment",
-        element: <Payment />,
+        element: (
+          <Suspense fallback={<LoaderFallback />}>
+            <Payment />
+          </Suspense>
+        ),
       },
       {
         path: "profile",
-        element: <Profile />,
+        element: (
+          <Suspense fallback={<LoaderFallback />}>
+            <Profile />
+          </Suspense>
+        ),
       },
       {
         path: "clients/:clientId",
-        element: <ClientDetails />,
+        element: (
+          <Suspense fallback={<LoaderFallback />}>
+            <ClientDetails />
+          </Suspense>
+        ),
+      },
+      {
+        path: "clients/new",
+        element: (
+          <Suspense fallback={<LoaderFallback />}>
+            <ClientAppointment />
+          </Suspense>
+        ),
       },
     ],
   },
