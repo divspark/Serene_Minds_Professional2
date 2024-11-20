@@ -2,7 +2,7 @@ import React from 'react';
 import { FaCheck, FaTimes } from 'react-icons/fa';
 
 const ClientAppointmentCard = ({ name, date, time, treatment, image }) => {
-  const defaultImage = 'man-potrait.jpeg'; // Default image path
+  const defaultImage = '/man-potrait.jpeg'; // Default image path
 
   return (
     <div className="grid grid-cols-10 items-center gap-4 border border-gray-300 rounded-lg mx-28 mt-4 p-4"> 

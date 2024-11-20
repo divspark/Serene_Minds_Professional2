@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Loader, Center } from "@mantine/core"; // Import Mantine components
 import AppWrapper from "../components/AppWrapper";
+import Membership from "../components/Membership";
 
 // Lazy import pages
 const SigninProfessional = React.lazy(() =>
@@ -131,6 +132,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<LoaderFallback />}>
             <ClientAppointment />
+          </Suspense>
+        ),
+      },
+      {
+        path: "member",
+        element: (
+          <Suspense fallback={<LoaderFallback />}>
+            <Membership />
           </Suspense>
         ),
       },
