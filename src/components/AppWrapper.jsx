@@ -10,7 +10,7 @@ export default function AppWrapper() {
       </aside>
       <div className="flex flex-1 flex-col h-screen">
         <Header />
-        <AdBanner />
+        {/* <AdBanner /> */}
         <Outlet />
       </div>
     </main>

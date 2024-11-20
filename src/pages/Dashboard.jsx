@@ -3,6 +3,7 @@ import { Flex } from "@mantine/core";
 import { IoIosTrendingUp, IoIosTrendingDown } from "react-icons/io";
 import Chart from "../components/Chart";
 import CalenderPicker from "../components/CalenderPicker";
+import AdBanner from "../components/Ad/AdBanner";
 
 // Local Component for Stats Cards
 const StatsCard = ({ title, value, isUp, percentage }) => (
@@ -33,6 +34,7 @@ const Dashboard = () => {
     <>
       {/* Main Content */}
       <section className="flex-1 p-4 pt-0 overflow-y-auto">
+        <AdBanner />
         {/* Stats Cards Container - Single Row Layout */}
         <div className="flex bg-[#418FF1] gap-5 px-7 py-8 rounded-3xl">
           <StatsCard
