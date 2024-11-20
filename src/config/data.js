@@ -5,7 +5,7 @@ export const clientAppointments = [
       date: "12 Oct 2024",
       time: "9:10pm",
       treatment: "Anxiety and panic attacks",
-      image: "man-potrait.jpeg", // Custom image
+      image: "/man-potrait.jpeg", // Custom image
     },
     {
       name: "John Doe",
