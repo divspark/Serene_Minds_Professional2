@@ -7,7 +7,7 @@ import { Notification } from "./Notification";
 import EditableText from "../../components/EditableText";
 import { useDisclosure } from "@mantine/hooks";
 
-export const Settings = () => {
+const Settings = () => {
     const [opened, { open, close }] = useDisclosure(false);
   const scrollAreaRef = useRef(null);
 
@@ -219,3 +219,6 @@ export const Settings = () => {
     </>
   );
 };
+
+
+export default Settings;

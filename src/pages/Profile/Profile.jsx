@@ -13,7 +13,7 @@ import { NewEducation } from "./NewEducation";
 import { ProfileDetails } from "./ProfileDetail";
 import ExpertiseSection from "./ExpertiseSection";
 
-export const Profile = () => {
+const Profile = () => {
   const [active, setActive] = useState(1);
   const nextStep = () =>
     setActive((current) => (current < 5 ? current + 1 : current));
@@ -142,3 +142,6 @@ export const Profile = () => {
     </>
   );
 };
+
+
+export default Profile;
