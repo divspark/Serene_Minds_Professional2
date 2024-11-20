@@ -2,7 +2,7 @@ import React from 'react';
 import { FaCheck, FaTimes } from 'react-icons/fa'; // Import icons
 import ClientAppointmentCard from './ClientAppointmentCard';
 
-export const ClientAppointment = () => {
+const ClientAppointment = () => {
   return (
     <div className='mb-10'>
       <div className='flex justify-between p-4'>
@@ -50,3 +50,5 @@ export const ClientAppointment = () => {
     </div>
   );
 };
+
+export default ClientAppointment;
