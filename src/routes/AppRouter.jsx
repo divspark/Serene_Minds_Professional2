@@ -5,8 +5,8 @@ import AppWrapper from "../components/AppWrapper";
 import Membership from "../components/Membership";
 
 // Normal import of pages
-import SigninProfessional from "../pages/SignInProfessional/SigninProfessional";
-import Register from "../pages/Onboarding/Register";
+import {SigninProfessional} from "../pages/SignInProfessional/SigninProfessional";
+import {Register} from "../pages/Onboarding/Register";
 import Dashboard from "../pages/Dashboard";
 import MyClients from "../pages/Clients/MyClients";
 import ClientDetails from "../pages/Clients/ClientDetails/ClientDetails";
