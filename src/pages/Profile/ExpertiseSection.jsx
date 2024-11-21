@@ -35,7 +35,7 @@ const ExpertiseSection = () => {
   };
 
   return (
-    <>
+    <div className='flex flex-col items-center'>
       {expertise.map((exp, index) => (
         <div key={index} className="pro-details w-[728px] p-4 mt-5 relative rounded-lg border-l-4 border-[#1678F2] shadow-lg">
           <div className="flex justify-between ml-4">
@@ -88,7 +88,7 @@ const ExpertiseSection = () => {
           </button>
         </div>
       </Modal>
-    </>
+    </div>
   );
 };
 

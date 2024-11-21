@@ -310,3 +310,70 @@ export const appointmentData = {
     },
   ],
 };
+
+
+export const professionalQuestions = [
+  {
+    id: 1,
+    question: "What is your area of expertise?",
+    options: ["Depression", "Anxiety", "Stress", "Trauma", "Other"],
+  },
+  {
+    id: 2,
+    question: "How many years of experience do you have?",
+    options: ["1", "2", "3", "4", "5+ years"], // Added default options for the number input
+  },
+  {
+    id: 3,
+    question: "What type of practice do you have?",
+    options: ["Private Practice", "Group Practice", "Hospital-based", "Other"],
+  },
+  {
+    id: 4,
+    question: "How many patients/clients do you typically see per month?",
+    options: ["<10", "10-20", "20-30", "30+ clients"], // Default options for this field
+  },
+  {
+    id: 5,
+    question: "What is your preferred method for conducting sessions?",
+    options: ["In-person", "Online", "Hybrid (In-person + Online)"],
+  },
+  {
+    id: 6,
+    question: "How do you currently manage appointment bookings?",
+    options: ["Manually", "Online Booking Platforms", "Practice Management Software", "Other"],
+  },
+  {
+    id: 7,
+    question: "What types of mental health assessments do you typically use?",
+    options: [
+      "Self-Reported Questionnaires",
+      "Structured Clinical Interviews",
+      "Behavioral Assessments",
+      "Cognitive Assessments",
+      "Other",
+    ],
+  },
+  {
+    id: 8,
+    question: "Which best describes your client base?",
+    options: ["Adults", "Children", "Families", "Couples", "Other"],
+  },
+  {
+    id: 9,
+    question: "How do you handle emergencies or urgent cases?",
+    options: ["Refer to Emergency Services", "On-call Availability", "Crisis Intervention Services", "Other"],
+  },
+  {
+    id: 10,
+    question: "What are your working hours?",
+    options: ["9 AM - 5 PM", "8 AM - 4 PM", "Flexible", "Other"], // Default options for working hours
+  },
+  {
+    id: 11,
+    question: "What are your fees for a standard session?",
+    options: ["$50", "$100", "$150", "$200"], // Default options for session fees
+  },
+];
+
+

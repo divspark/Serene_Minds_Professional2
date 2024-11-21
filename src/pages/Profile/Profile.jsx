@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { Tabs, rem } from "@mantine/core";
-import { CiEdit, CiStar } from "react-icons/ci";
-import { IoAddOutline } from "react-icons/io5";
-import { RiDeleteBin6Line } from "react-icons/ri";
+import { CiEdit } from "react-icons/ci";
 import { useDisclosure } from "@mantine/hooks";
-import { Modal, Button } from "@mantine/core";
-import { Select } from "@mantine/core";
+import { Modal } from "@mantine/core";
 import { AboutMe } from "./AboutMe";
 import DayAvailability from "./DayAvailability";
 import { NewServices } from "./NewServices";
@@ -14,11 +11,6 @@ import { ProfileDetails } from "./ProfileDetail";
 import ExpertiseSection from "./ExpertiseSection";
 
 const Profile = () => {
-  const [active, setActive] = useState(1);
-  const nextStep = () =>
-    setActive((current) => (current < 5 ? current + 1 : current));
-
-  const [opened, { open, close }] = useDisclosure(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [price, setPrice] = useState("700"); // Initial price
 
@@ -26,42 +18,40 @@ const Profile = () => {
   const closeModal = () => setIsModalOpen(false);
 
   const handleSave = () => {
-    // Save changes, close modal
     closeModal();
   };
 
   return (
-    <>
-      <div className="w-3/4 flex justify-center items-center">
-        <Tabs defaultValue="shareable">
-          <div className="flex justify-center">
-            <Tabs.List>
-              <Tabs.Tab value="shareable">
-                <h2 className="text-lg text-[#9995AF] font-semibold">
-                  Shareable
-                </h2>
-              </Tabs.Tab>
-              <Tabs.Tab value="credentials">
-                <h2 className="text-lg text-[#9995AF] font-semibold">
-                  Your Credentials
-                </h2>
-              </Tabs.Tab>
-              <Tabs.Tab value="professional">
-                <h2 className="text-lg text-[#9995AF] font-semibold">
-                  Professional
-                </h2>
-              </Tabs.Tab>
-            </Tabs.List>
-          </div>
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full flex flex-col justify-center items-center">
+        <Tabs defaultValue="shareable" className="w-full">
+          <Tabs.List className="flex flex-wrap justify-center">
+            <Tabs.Tab
+              value="shareable"
+              className="text-sm sm:text-lg font-semibold text-gray-600"
+            >
+              Shareable
+            </Tabs.Tab>
+            <Tabs.Tab
+              value="credentials"
+              className="text-sm sm:text-lg font-semibold text-gray-600"
+            >
+              Your Credentials
+            </Tabs.Tab>
+            <Tabs.Tab
+              value="professional"
+              className="text-sm sm:text-lg font-semibold text-gray-600"
+            >
+              Professional
+            </Tabs.Tab>
+          </Tabs.List>
 
-          <Tabs.Panel value="shareable">
-            <div className="container-5 flex  flex-col justify-center">
+          {/* Shareable Tab Panel */}
+          <Tabs.Panel value="shareable" className="w-full mt-6">
+            <div className="flex flex-col items-center gap-6">
               <ProfileDetails />
-
               <AboutMe />
-
               <NewEducation />
-
               <NewServices />
 
               <div className="services w-[728px] border border-gray-300 p-4 mt-5 relative  top-[-150px] rounded-lg">
@@ -105,43 +95,47 @@ const Profile = () => {
                   onClose={closeModal}
                   title="Edit Price"
                   centered
-                  withCloseButton={false}
                   radius="lg"
                 >
                   <div className="px-8 py-4">
                     <div className="flex flex-col mb-4">
-                      <label className="mb-2">Price per session (INR)</label>
+                      <label className="mb-2 font-medium">
+                        Price per session (INR)
+                      </label>
                       <input
                         type="number"
                         value={price}
                         onChange={(e) => setPrice(e.target.value)}
-                        className="border-2 border-gray-400 p-2"
+                        className="border border-gray-300 rounded-md p-2"
                       />
                     </div>
-                  </div>
-                  <div className="flex justify-center mt-4 mb-2">
-                    <button
-                      className="px-10 py-2 flex justify-center items-center text-white rounded-full bg-gradient-to-r from-blue-500 to-purple-600"
-                      onClick={handleSave}
-                    >
-                      Save
-                    </button>
+                    <div className="flex justify-center">
+                      <button
+                        className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full px-6 py-2"
+                        onClick={handleSave}
+                      >
+                        Save
+                      </button>
+                    </div>
                   </div>
                 </Modal>
               )}
             </div>
           </Tabs.Panel>
 
-          <Tabs.Panel value="credentials">Messages tab content</Tabs.Panel>
+          {/* Credentials Tab Panel */}
+          <Tabs.Panel value="credentials" className="w-full mt-6">
+            <p>Credentials content</p>
+          </Tabs.Panel>
 
-          <Tabs.Panel value="professional">
+          {/* Professional Tab Panel */}
+          <Tabs.Panel value="professional" className="w-full mt-6">
             <ExpertiseSection />
           </Tabs.Panel>
         </Tabs>
       </div>
-    </>
+    </div>
   );
 };
-
 
 export default Profile;

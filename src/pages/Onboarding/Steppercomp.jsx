@@ -4,6 +4,7 @@ import { PiLockKey } from "react-icons/pi";
 import { OtpInput } from "../../components/OtpInput";
 import { Select } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
+import { professionalQuestions } from "../../config/data";
 
 export const Steppercomp = () => {
   const navigate = useNavigate();
@@ -138,40 +139,23 @@ export const Steppercomp = () => {
           </div>
         </Stepper.Step>
         <Stepper.Step label="Professional Details">
-          <div className="w-full flex flex-col items-center mt-7">
-            <div className="flex flex-col mb-2 w-4/5">
-              <Select
-                label="What is your area of expertise"
-                placeholder="Pick value"
-                data={["Depression", "Anxiety", "Stress"]}
-              />
-            </div>
-            <div className="flex flex-col mb-2 w-4/5">
-              <Select
-                label="What is your area of expertise"
-                placeholder="Pick value"
-                data={["Depression", "Anxiety", "Stress"]}
-              />
-            </div>
-            <div className="flex flex-col mb-2 w-4/5">
-              <Select
-                label="What is your area of expertise"
-                placeholder="Pick value"
-                data={["Depression", "Anxiety", "Stress"]}
-              />
-            </div>
-            <div className="flex flex-col mb-2 w-4/5">
-              <Select
-                label="What is your area of expertise"
-                placeholder="Pick value"
-                data={["Depression", "Anxiety", "Stress"]}
-              />
-            </div>
+          <div className="flex flex-col items-center">
+          {professionalQuestions.map((question) => {
+  return (
+    <div className="flex flex-col mb-2 w-4/5" key={question.id}>
+      <Select
+        label={question.question}
+        placeholder="Pick value"
+        data={question.options}
+      />
+    </div>
+  );
+})
+}
             <button
               onClick={nextStep}
               className="px-10 py-2 mt-8 text-white rounded-full bg-[linear-gradient(to_right,#3A8EF6,#6F3AFA)]"
             >
-              {" "}
               Proceed
             </button>
           </div>
