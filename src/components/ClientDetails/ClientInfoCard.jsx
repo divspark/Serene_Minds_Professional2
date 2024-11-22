@@ -130,10 +130,9 @@ export default function ClientInfoCard({ client }) {
             </ActionIcon>
           </Flex>
           <SimpleGrid p="md" cols={3}>
-            {LabelValueCombo("Gender", client.gender || "Not Available")}
-            {LabelValueCombo("Date of birth", client.dob || "Not Available")}
-            {LabelValueCombo("Phone", client.phone || "Not Available")}
-            {LabelValueCombo("Member Status", client.status || "Not Available")}
+            {LabelValueCombo("Gender", client.sex || "Not Available")}
+            {LabelValueCombo("Phone", client.phone_no || "Not Available")}
+            {LabelValueCombo("Member Status", client.status || "Active")}
             {LabelValueCombo("Zipcode", client.zipcode || "Not Available")}
             {LabelValueCombo("City", client.city || "Not Available")}
           </SimpleGrid>
