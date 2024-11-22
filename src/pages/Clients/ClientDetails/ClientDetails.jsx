@@ -6,6 +6,7 @@ import InvoiceList from "../../../components/ClientDetails/InvoiceList";
 import HealthAssessmentList from "../../../components/ClientDetails/HealthAssessment";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const TABS = [
   {
@@ -39,7 +40,7 @@ export default function ClientDetails() {
   useEffect(() => {
     const fetchClientDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/clients2/${id}`);
+        const response = await fetch(`${API_BASE_URL}/clients2/${id}`);
         const data = await response.json();
         setClient(data); // Store client data
         setLoading(false); // Set loading to false after fetching data

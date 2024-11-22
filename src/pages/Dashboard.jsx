@@ -5,6 +5,7 @@ import axios from "axios";
 import Chart from "../components/Chart";
 import CalenderPicker from "../components/CalenderPicker";
 import AdBanner from "../components/Ad/AdBanner";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 // Local Component for Stats Cards
 const StatsCard = ({ title, value, isUp, percentage }) => (
@@ -38,7 +39,7 @@ const Dashboard = () => {
     const fetchStats = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/appointment/professional/stats/1"
+          `${API_BASE_URL}/appointment/professional/stats/1`
         );
         setStats(response.data.stats);
       } catch (error) {

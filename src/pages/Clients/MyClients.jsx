@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { ScrollArea } from "@mantine/core";
 import TableHOC from "../../components/TableHOC";
 import ClientProfile from "../../assets/client-user.png"; // Fallback image
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const MyClients = () => {
   const [clients, setClients] = useState([]);
@@ -13,7 +14,7 @@ const MyClients = () => {
   useEffect(() => {
     const fetchClients = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/clients2/all"); // Adjust API endpoint if needed
+        const response = await fetch(`${API_BASE_URL}/clients2/all`); // Adjust API endpoint if needed
         const data = await response.json();
         const transformedData = data.map((client) => ({
           id: client.id,
