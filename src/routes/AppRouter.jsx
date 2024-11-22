@@ -37,6 +37,10 @@ const router = createBrowserRouter([
     element: <Register />,
   },
   {
+    path: "booking",
+    element: <PersonalBooking />,
+  },
+  {
     path: "/",
     element: <AppWrapper />,
     children: [
@@ -84,10 +88,7 @@ const router = createBrowserRouter([
         path: "member",
         element: <Membership />,
       },
-      {
-        path: "booking",
-        element: <PersonalBooking />,
-      },
+      
     ],
   },
 ]);

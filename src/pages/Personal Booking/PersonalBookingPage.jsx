@@ -12,7 +12,22 @@ export function PersonalBooking() {
   };
 
   return (
-    <div className="text-center mt-10">
+    <div>
+        {/* Top Header */}
+        <div className="flex justify-between">
+            <img src="logo-black.png" alt="logo" className="w-32 m-6"/>
+            <div className="m-6 px-4 rounded-md flex justify-center items-center bg-gray-200">
+              <img
+                src='/user-logo.png'
+                alt="User Profile"
+                className="w-10 h-10 rounded-full object-cover mr-3"
+              />
+              <span className="text-base font-medium text-gray-700">
+                Dr. Kim
+              </span>
+            </div>
+        </div>
+    <div className="text-center mt-4">
       <h1 className="font-semibold text-3xl mb-4">Book Your Appointment</h1>
       <p className="text-lg mb-6">
         Select date and time that best works for you.
@@ -81,6 +96,7 @@ export function PersonalBooking() {
           />
         </div>
       </div>
+    </div>
     </div>
   );
 }
