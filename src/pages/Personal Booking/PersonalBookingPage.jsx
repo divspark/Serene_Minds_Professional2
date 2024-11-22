@@ -63,7 +63,7 @@ export function PersonalBooking() {
 
           <button
             onClick={handleClick}
-            className="w-1/2 py-2 text-white bg-blue-600 rounded-lg mt-4 mb-6"
+            className="w-3/4 py-2  text-white bg-blue-600 rounded-lg mt-4 mb-6"
           >
             Book my appointment
           </button>
