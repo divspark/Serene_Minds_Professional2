@@ -6,6 +6,7 @@ import { PrivacySecurity } from "./PrivacySecurity";
 import { Notification } from "./Notification";
 import EditableText from "../../components/EditableText";
 import { useDisclosure } from "@mantine/hooks";
+import Membership from "../../components/Membership";
 
 const Settings = () => {
     const [opened, { open, close }] = useDisclosure(false);
@@ -49,6 +50,7 @@ const Settings = () => {
                 <Tabs.Tab value="deleteaccount">
                   Deactivate/Delete Account
                 </Tabs.Tab>
+                <Tabs.Tab value="subscribe">Subscription</Tabs.Tab>
               </Tabs.List>
 
               {/* Content for each Tab Panel */}
@@ -149,6 +151,9 @@ const Settings = () => {
                       />
                     </div>
                   </div>
+                </Tabs.Panel>
+                <Tabs.Panel value="subscribe">
+                  <Membership />
                 </Tabs.Panel>
               </div>
             </Tabs>
