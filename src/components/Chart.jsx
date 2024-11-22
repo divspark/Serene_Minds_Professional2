@@ -10,6 +10,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import axios from "axios";
 
 // Register the required components
 ChartJS.register(
@@ -25,7 +26,43 @@ ChartJS.register(
 const BarChart = () => {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
+  const [earningsData, setEarningsData] = useState([]);
   const [activeButton, setActiveButton] = useState("Monthly"); // Default active button
+
+  useEffect(() => {
+    // Fetch earnings data from the API
+    const fetchEarnings = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:3000/api/appointment/professional/monthly/1"
+        );
+        const { earnings } = response.data;
+
+        // Map earnings object to an array of values in the correct month order
+        const earningsArray = [
+          earnings.JAN,
+          earnings.FEB,
+          earnings.MAR,
+          earnings.APR,
+          earnings.MAY,
+          earnings.JUN,
+          earnings.JUL,
+          earnings.AUG,
+          earnings.SEP,
+          earnings.OCT,
+          earnings.NOV,
+          earnings.DEC,
+        ].map((value) => parseFloat(value) || 0); // Convert to numbers and handle empty strings
+
+        setEarningsData(earningsArray);
+      } catch (error) {
+        console.error("Error fetching earnings data:", error);
+        setEarningsData(new Array(12).fill(0)); // Default to zero for all months if error occurs
+      }
+    };
+
+    fetchEarnings();
+  }, []);
 
   useEffect(() => {
     const ctx = chartRef.current.getContext("2d");
@@ -34,10 +71,6 @@ const BarChart = () => {
     if (chartInstance.current) {
       chartInstance.current.destroy();
     }
-
-    const randomData = Array.from({ length: 12 }, () =>
-      Math.floor(Math.random() * 5000)
-    );
 
     // Create a new chart instance
     chartInstance.current = new ChartJS(ctx, {
@@ -59,8 +92,8 @@ const BarChart = () => {
         ],
         datasets: [
           {
-            label: "Sales",
-            data: randomData,
+            label: "Earnings (INR)",
+            data: earningsData, // Use fetched earnings data
             backgroundColor: "#3788E5",
             barThickness: 15,
             borderRadius: 0,
@@ -78,11 +111,10 @@ const BarChart = () => {
           y: {
             position: "right",
             ticks: {
-              callback: (value) => `${value / 1000}k`,
-              stepSize: 1000, // Ensures the tick interval is 1k
+              callback: (value) => `₹${value.toFixed(2)}`,
+              stepSize: 50, // Adjust tick interval as needed
             },
             beginAtZero: true,
-            max: 5000, // Limit the max value on the y-axis
           },
         },
         plugins: {
@@ -94,7 +126,7 @@ const BarChart = () => {
     return () => {
       chartInstance.current.destroy();
     };
-  }, []);
+  }, [earningsData]); // Re-render chart when earningsData changes
 
   return (
     <div className="p-4 flex-1 bg-white shadow-md rounded-lg">
