@@ -51,7 +51,9 @@ const TableHOC = ({ columns, data, origin }) => {
           <tbody>
             {table.getRowModel().rows.map((row) => (
               <tr
-                onClick={() => navigate(`${navigationMap[origin]}/${row.id}`)}
+                onClick={() =>
+                  navigate(`${navigationMap[origin]}/${parseInt(row.id) + 1}`)
+                } // Increment row.id by 1
                 key={row.id}
                 className="hover:bg-slate-400 hover:cursor-pointer"
               >

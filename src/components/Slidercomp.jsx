@@ -19,12 +19,12 @@ import Logo from "../assets/Logo-black.png";
 const mainData = [
   { link: "/", label: "Home", icon: IconCategory },
   { link: "/appointments", label: "Appointments", icon: IconCalendar },
-  { link: "clients", label: "My clients", icon: IconUserCheck },
-  { link: "calender", label: "Calendar", icon: IconCalendarEvent },
-  { link: "payment", label: "Payments", icon: IconCreditCard },
-  { link: "journal", label: "Journals", icon: IconNotebook },
-  { link: "profile", label: "Profile", icon: IconUserCircle },
-  { link: "settings", label: "Settings", icon: IconSettings },
+  { link: "/clients", label: "My clients", icon: IconUserCheck },
+  { link: "/calender", label: "Calendar", icon: IconCalendarEvent },
+  { link: "/payment", label: "Payments", icon: IconCreditCard },
+  { link: "/journal", label: "Journals", icon: IconNotebook },
+  { link: "/profile", label: "Profile", icon: IconUserCircle },
+  { link: "/settings", label: "Settings", icon: IconSettings },
 ];
 
 export function Slidercomp() {
@@ -56,24 +56,17 @@ export function Slidercomp() {
       {/* Main Links */}
       <Stack gap={10}>
         {mainData.map((item, index) => (
-          <>
-            <NavLink
-              className={classes.link}
-              key={item.label}
-              label={item.label}
-              active={active === index}
-              onClick={() => {
-                setActive(index);
-                navigate(item.link);
-              }}
-              leftSection={
-                <item.icon className={classes.linkIcon} stroke={1.2} />
-              }
-            />
-            {index == 1 ? (
-              <hr className="text-slate-700 my-2 mx-3 font-extrabold" />
-            ) : null}
-          </>
+          <NavLink
+            key={item.link} 
+            className={classes.link}
+            label={item.label}
+            active={active === index}
+            onClick={() => {
+              setActive(index);
+              navigate(item.link);
+            }}
+            leftSection={<item.icon className={classes.linkIcon} stroke={1.2} />}
+          />
         ))}
       </Stack>
 

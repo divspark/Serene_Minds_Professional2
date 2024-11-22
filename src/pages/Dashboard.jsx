@@ -1,6 +1,7 @@
-/* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
 import { Flex } from "@mantine/core";
 import { IoIosTrendingUp, IoIosTrendingDown } from "react-icons/io";
+import axios from "axios";
 import Chart from "../components/Chart";
 import CalenderPicker from "../components/CalenderPicker";
 import AdBanner from "../components/Ad/AdBanner";
@@ -19,8 +20,7 @@ const StatsCard = ({ title, value, isUp, percentage }) => (
       <div
         className={`absolute bottom-4 right-3 shadow-2xl flex items-center gap-1 px-2 py-1 text-base 
           rounded-xl transition-transform font-medium duration-300
-          ${isUp ? "bg-green-200 text-[#008000]" : "bg-red-200 text-[#D30404]"}
-          group-hover:scale-125 group-hover:translate-x-4`}
+          ${isUp ? "bg-green-200 text-[#008000]" : "bg-red-200 text-[#D30404]"}`}
       >
         <span>{percentage}%</span>
         {isUp ? <IoIosTrendingUp /> : <IoIosTrendingDown />}
@@ -30,6 +30,31 @@ const StatsCard = ({ title, value, isUp, percentage }) => (
 );
 
 const Dashboard = () => {
+  const [stats, setStats] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Fetch stats data from the API
+    const fetchStats = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:3000/api/appointment/professional/stats/1"
+        );
+        setStats(response.data.stats);
+      } catch (error) {
+        console.error("Error fetching stats:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchStats();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <>
       {/* Main Content */}
@@ -38,21 +63,27 @@ const Dashboard = () => {
         {/* Stats Cards Container - Single Row Layout */}
         <div className="flex bg-[#418FF1] gap-5 px-7 py-8 rounded-3xl">
           <StatsCard
-            title="New Patients"
-            value="40"
-            isUp={true}
-            percentage={51}
+            title="Upcoming Appointments This Week"
+            value={stats.upcomingAppointmentsThisWeek}
+            isUp={true} // Customize if you want to show trends dynamically
+            percentage={10} // Placeholder for dynamic trends
           />
 
           <StatsCard
-            title="Old Patients"
-            value="64"
-            isUp={false}
-            percentage={20}
+            title="Distinct Clients This Month"
+            value={stats.distinctClientsThisMonth}
+            isUp={false} // Customize if you want to show trends dynamically
+            percentage={5} // Placeholder for dynamic trends
           />
 
-          <StatsCard title="Number of Appointments" value="130" />
-          <StatsCard title="Earning" value="INR 2,48,908" />
+          <StatsCard
+            title="Number of Appointments"
+            value={stats.totalAppointments}
+          />
+          <StatsCard
+            title="Earnings"
+            value={`INR ${stats.totalFeesThisMonth}`}
+          />
         </div>
 
         <Flex gap={22}>
