@@ -65,25 +65,25 @@ const Dashboard = () => {
         <div className="flex bg-[#418FF1] gap-5 px-7 py-8 rounded-3xl">
           <StatsCard
             title="Upcoming Appointments This Week"
-            value={stats.upcomingAppointmentsThisWeek}
+            value={stats.upcomingAppointmentsThisWeek || 'N/A'}
             isUp={true} // Customize if you want to show trends dynamically
             percentage={10} // Placeholder for dynamic trends
           />
 
           <StatsCard
             title="Distinct Clients This Month"
-            value={stats.distinctClientsThisMonth}
+            value={stats.distinctClientsThisMonth || 'N/A'}
             isUp={false} // Customize if you want to show trends dynamically
             percentage={5} // Placeholder for dynamic trends
           />
 
           <StatsCard
             title="Number of Appointments"
-            value={stats.totalAppointments}
+            value={stats.totalAppointments || 'N/A'}
           />
           <StatsCard
             title="Earnings"
-            value={`INR ${stats.totalFeesThisMonth}`}
+            value={`INR ${stats.totalFeesThisMonth || 'N/A'} `}
           />
         </div>
 
