@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Tabs, SimpleGrid } from "@mantine/core";
+import { Tabs, SimpleGrid, Loader } from "@mantine/core"; // Import Loader from Mantine
 import AppointmentCard from "../../components/Appointments/AppointmentCard";
 import axios from "axios";
 
@@ -15,6 +15,7 @@ export default function AppointmentPage() {
     completed: [],
     cancelled: [],
   });
+  const [loading, setLoading] = useState(true); // Add loading state
 
   // Helper to fetch client details
   const fetchClientDetails = async (clientId) => {
@@ -77,6 +78,8 @@ export default function AppointmentPage() {
         setAppointments(categorizedData);
       } catch (error) {
         console.error("Error fetching appointments:", error);
+      } finally {
+        setLoading(false); // Set loading to false after data is fetched
       }
     };
 
@@ -88,6 +91,15 @@ export default function AppointmentPage() {
     { label: "Completed", value: "completed", data: appointments.completed },
     { label: "Cancelled", value: "cancelled", data: appointments.cancelled },
   ];
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        {/* Mantine Loader */}
+        <Loader size="xl" variant="dots" />
+      </div>
+    );
+  }
 
   return (
     <Tabs radius="md" defaultValue="upcoming">

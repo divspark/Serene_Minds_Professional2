@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Flex } from "@mantine/core";
+import { Flex, Loader } from "@mantine/core"; // Import Loader from Mantine
 import { IoIosTrendingUp, IoIosTrendingDown } from "react-icons/io";
 import axios from "axios";
 import Chart from "../components/Chart";
@@ -53,7 +53,12 @@ const Dashboard = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        {/* Mantine Loader */}
+        <Loader size="xl" variant="dots" />
+      </div>
+    );
   }
 
   return (
