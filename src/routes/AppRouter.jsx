@@ -17,6 +17,7 @@ import Profile from "../pages/Profile/Profile";
 import AppointmentPage from "../pages/Appointment/Appointment";
 import ClientAppointment from "../pages/ClientAppointment/ClientAppointment";
 import Settings from "../pages/SettingsPage/Settings";
+import PersonalBooking from "../pages/Personal Booking/PersonalBookingPage";
 
 // Loader fallback component (removed since lazy loading is no longer used)
 const LoaderFallback = () => (
@@ -82,6 +83,10 @@ const router = createBrowserRouter([
       {
         path: "member",
         element: <Membership />,
+      },
+      {
+        path: "booking",
+        element: <PersonalBooking />,
       },
     ],
   },
