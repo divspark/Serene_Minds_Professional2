@@ -5,7 +5,7 @@ import { MdContentCopy } from "react-icons/md";
 
 export function AddClientModal({ opened, close }) {
   const [link] = useState(
-    "https://www.pexels.com/photo/man-in-gray-long-sleeve-shirt-123456/"
+    "https://serene-minds-professional2.vercel.app/booking"
   );
   const [showEmailInput, setShowEmailInput] = useState(false);
   const [email, setEmail] = useState("");
