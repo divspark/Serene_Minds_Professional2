@@ -18,6 +18,7 @@ import AppointmentPage from "../pages/Appointment/Appointment";
 import ClientAppointment from "../pages/ClientAppointment/ClientAppointment";
 import Settings from "../pages/SettingsPage/Settings";
 import PersonalBooking from "../pages/Personal Booking/PersonalBookingPage";
+import { Chat } from "../components/Chat";
 
 // Loader fallback component (removed since lazy loading is no longer used)
 const LoaderFallback = () => (
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
       {
         path: "calender",
         element: <CalendarPage />,
+      },
+      {
+        path: "chat",
+        element: <Chat />,
       },
       {
         path: "journal",

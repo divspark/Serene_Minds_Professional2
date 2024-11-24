@@ -22,6 +22,7 @@ const mainData = [
   { link: "/clients", label: "My clients", icon: IconUserCheck },
   { link: "/calender", label: "Calendar", icon: IconCalendarEvent },
   { link: "/payment", label: "Payments", icon: IconCreditCard },
+  { link: "/chat", label: "Chat", icon: IconCreditCard },
   { link: "/journal", label: "Journals", icon: IconNotebook },
   { link: "/profile", label: "Profile", icon: IconUserCircle },
   { link: "/settings", label: "Settings", icon: IconSettings },
