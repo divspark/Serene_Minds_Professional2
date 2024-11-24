@@ -26,14 +26,14 @@ export const PersonalInformation = () => {
               <EditableText firstText="Linked Accounts: " secondText="Manage Integration with Google Notion" />
             </div>
 
-            <div className="font-medium mt-2 mb-2 text-xl text-[#2A2A2A]">
+            {/* <div className="font-medium mt-2 mb-2 text-xl text-[#2A2A2A]">
               Subscription Billing Information
             </div>
             <div className="flex flex-col items-center justify-center">
               <EditableText firstText="View or Update Subscription Plan: " secondText="Lorem Ipsum" />
               <EditableText firstText="Payment Method Management: " secondText="Lorem Ipsum" />
               <EditableText firstText="Invoice History: " secondText="Lorem Ipsum" />
-            </div>
+            </div> */}
 
             <div className="flex justify-center mb-4">
             <button

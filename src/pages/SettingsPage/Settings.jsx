@@ -42,11 +42,11 @@ const Settings = () => {
             <Tabs defaultValue="account">
               <Tabs.List grow justify="center">
                 <Tabs.Tab value="account">Account</Tabs.Tab>
-                <Tabs.Tab value="profile">Professional Profile</Tabs.Tab>
-                <Tabs.Tab value="privacy">Privacy & Security</Tabs.Tab>
+                {/* <Tabs.Tab value="profile">Professional Profile</Tabs.Tab> */}
+                {/* <Tabs.Tab value="privacy">Privacy & Security</Tabs.Tab>
                 <Tabs.Tab value="notification">Notification</Tabs.Tab>
                 <Tabs.Tab value="dashboard">Dashboard</Tabs.Tab>
-                <Tabs.Tab value="dataexport">Data Export/Import</Tabs.Tab>
+                <Tabs.Tab value="dataexport">Data Export/Import</Tabs.Tab> */}
                 <Tabs.Tab value="deleteaccount">
                   Deactivate/Delete Account
                 </Tabs.Tab>
@@ -58,29 +58,8 @@ const Settings = () => {
                 <Tabs.Panel value="account">
                   <PersonalInformation />
                 </Tabs.Panel>
-                <Tabs.Panel value="profile">
-                  <div className="font-medium mt-2 mb-2 text-xl text-[#2A2A2A]">
-                    Service Types
-                  </div>
-                  <div className="flex flex-col items-center justify-center">
-                    <EditableText
-                      firstText="Types Of Services Offered: "
-                      secondText="Therapy,Counseling"
-                    />
-                    <EditableText
-                      firstText="Fee Structure: "
-                      secondText="Sliding Scale"
-                    />
-                  </div>
-
-                  <div className="flex justify-center mb-4">
-                    <button className="px-10 py-2 mt-8 text-white rounded-full bg-[linear-gradient(to_right,#3A8EF6,#6F3AFA)]">
-                      {" "}
-                      Save Changes
-                    </button>
-                  </div>
-                </Tabs.Panel>
-                <Tabs.Panel value="privacy">
+                {/* s */}
+                {/* <Tabs.Panel value="privacy">
                   <PrivacySecurity />
                 </Tabs.Panel>
                 <Tabs.Panel value="notification">
@@ -131,7 +110,7 @@ const Settings = () => {
                       Save Changes
                     </button>
                   </div>
-                </Tabs.Panel>
+                </Tabs.Panel> */}
                 <Tabs.Panel value="deleteaccount">
                   <div className="flex flex-col items-center">
                     <div className="flex items-center px-6 py-4 mt-4 rounded-lg border-l-4 border-[#1678F2] shadow-lg w-[700px] h-[69px]">
