@@ -34,7 +34,7 @@ const BarChart = () => {
     const fetchEarnings = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/appointment/professional/monthly/1"
+          `${API_BASE_URL}/appointment/professional/monthly/1`
         );
         const { earnings } = response.data;
 
