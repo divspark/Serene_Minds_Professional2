@@ -32,7 +32,7 @@ const Profile = () => {
             >
               Shareable
             </Tabs.Tab>
-            <Tabs.Tab
+            {/* <Tabs.Tab
               value="credentials"
               className="text-sm sm:text-lg font-semibold text-gray-600"
             >
@@ -43,7 +43,7 @@ const Profile = () => {
               className="text-sm sm:text-lg font-semibold text-gray-600"
             >
               Professional
-            </Tabs.Tab>
+            </Tabs.Tab> */}
           </Tabs.List>
 
           {/* Shareable Tab Panel */}
@@ -124,9 +124,9 @@ const Profile = () => {
           </Tabs.Panel>
 
           {/* Credentials Tab Panel */}
-          <Tabs.Panel value="credentials" className="w-full mt-6">
+          {/* <Tabs.Panel value="credentials" className="w-full mt-6">
             <p>Credentials content</p>
-          </Tabs.Panel>
+          </Tabs.Panel> */}
 
           {/* Professional Tab Panel */}
           <Tabs.Panel value="professional" className="w-full mt-6">
