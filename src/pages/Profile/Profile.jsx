@@ -37,13 +37,13 @@ const Profile = () => {
               className="text-sm sm:text-lg font-semibold text-gray-600"
             >
               Your Credentials
-            </Tabs.Tab>
+            </Tabs.Tab> */}
             <Tabs.Tab
               value="professional"
               className="text-sm sm:text-lg font-semibold text-gray-600"
             >
               Professional
-            </Tabs.Tab> */}
+            </Tabs.Tab>
           </Tabs.List>
 
           {/* Shareable Tab Panel */}
