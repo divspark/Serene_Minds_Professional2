@@ -29,6 +29,7 @@ const BarChart = () => {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
   const [earningsData, setEarningsData] = useState([]);
+  const [yearlyEarnings, setYearlyEarnings] = useState(0); // State for yearly earnings
   const [activeButton, setActiveButton] = useState("Monthly"); // Default active button
 
   useEffect(() => {
@@ -38,7 +39,7 @@ const BarChart = () => {
         const response = await axios.get(
           `${API_BASE_URL}/appointment/professional/monthly/1`
         );
-        const { earnings } = response.data;
+        const { earnings, yearlyEarnings } = response.data;
 
         // Map earnings object to an array of values in the correct month order
         const earningsArray = [
@@ -57,9 +58,11 @@ const BarChart = () => {
         ].map((value) => parseFloat(value) || 0); // Convert to numbers and handle empty strings
 
         setEarningsData(earningsArray);
+        setYearlyEarnings(parseFloat(yearlyEarnings) || 0); // Set the yearly earnings
       } catch (error) {
         console.error("Error fetching earnings data:", error);
         setEarningsData(new Array(12).fill(0)); // Default to zero for all months if error occurs
+        setYearlyEarnings(0); // Set yearly earnings to 0 in case of error
       }
     };
 
@@ -137,11 +140,10 @@ const BarChart = () => {
         <div className="flex gap-3 justify-center items-end">
           <Stack gap={1}>
             <p className="text-sm text-[#9291A5]">Earnings 2024</p>
-            <h2 className="text-3xl text-black font-bold">INR 97,388</h2>
+            <h2 className="text-3xl text-black font-bold">
+              INR {yearlyEarnings.toFixed(2)} {/* Display yearly earnings */}
+            </h2>
           </Stack>
-          <Text mb={5} fw={500} c="#04CE00" fz={10}>
-            1.3% vs last year
-          </Text>
         </div>
         {/* Filter Buttons */}
         <SegmentedControl
