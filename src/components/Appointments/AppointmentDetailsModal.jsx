@@ -18,13 +18,22 @@ import {
   ClientHangoutDisabled,
 } from "../../assets/icons/icons";
 import profilePicture from "../../assets/8e2becda16e2f3abc85e162b63a8d214.jpeg";
-export default function AppointmentDetailsModal() {
+
+export default function AppointmentDetailsModal({
+  name,
+  age,
+  gender,
+  date,
+  time,
+  duration,
+  contact,
+}) {
   const openClientMessage = () =>
     modals.open({
       size: "xl",
       title: (
         <Text fw={500} fz={22}>
-          Send message to J. Gustaven
+          Send message to {name}
         </Text>
       ),
       children: (
@@ -38,6 +47,7 @@ export default function AppointmentDetailsModal() {
         </div>
       ),
     });
+
   return (
     <Flex gap={20}>
       <Stack flex={1}>
@@ -45,12 +55,11 @@ export default function AppointmentDetailsModal() {
           <Avatar src={profilePicture} size="xl" radius="xl" />
           <Stack gap={0} flex={1}>
             <Text fz={19} fw={700}>
-              J Abrams
+              {name}
             </Text>
-
             <Flex flex={1} gap={10} align="center">
               <Text c="#909090" fz={13}>
-                23 / Male
+                {age} / {gender}
               </Text>
               <Flex flex={1} gap={10} align="center" justify="end">
                 <ActionIcon
@@ -71,31 +80,25 @@ export default function AppointmentDetailsModal() {
           <Group justify="space-between">
             <Text fw={500}>Date</Text>
             <Text fw={400} c="#505050">
-              29 Nov 2024
+              {date}
             </Text>
           </Group>
           <Group justify="space-between">
             <Text fw={500}>Time</Text>
             <Text fw={400} c="#505050">
-              04:10 PM
+              {time}
             </Text>
           </Group>
           <Group justify="space-between">
             <Text fw={500}>Duration</Text>
             <Text fw={400} c="#505050">
-              45 mins
+              {duration}
             </Text>
           </Group>
           <Group justify="space-between">
             <Text fw={500}>Contact</Text>
             <Text fw={400} c="#505050">
-              +91-7805560586
-            </Text>
-          </Group>
-          <Group justify="space-between">
-            <Text fw={500}>Fee</Text>
-            <Text fw={400} c="#505050">
-              1400
+              {contact}
             </Text>
           </Group>
           <Stack gap={0}>
@@ -110,7 +113,7 @@ export default function AppointmentDetailsModal() {
       <Stack flex={1}>
         <Group justify="space-between">
           <Text fw={500} fz={14}>
-            Message from J. Gustaven
+            Message from {name}
           </Text>
           <Box className="border p-1 rounded-md">
             <Text

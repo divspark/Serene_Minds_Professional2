@@ -53,7 +53,17 @@ export default function AppointmentCard({
   const openAppointmentDetails = () =>
     modals.open({
       size: "xl",
-      children: <AppointmentDetailsModal />,
+      children: (
+        <AppointmentDetailsModal
+          name={name}
+          age={age}
+          gender={gender}
+          date={date}
+          time={time}
+          duration={duration}
+          contact={contact}
+        />
+      ),
     });
 
   return (
