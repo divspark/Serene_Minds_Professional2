@@ -1,8 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Quill from "quill";
+import "quill/dist/quill.snow.css"; // Snow theme for Quill
 
 const Journals = () => {
   const [tasks, setTasks] = useState([]);
+  const [notes, setNotes] = useState([]);
   const [task, setTask] = useState("");
+  const navigate = useNavigate();
 
   const thoughts = [
     "The only limit to our realization of tomorrow is our doubts of today.",
@@ -25,42 +30,77 @@ const Journals = () => {
     setTasks(newTasks);
   };
 
+  const addNote = () => {
+    navigate("/add-note"); // Navigate to a new page for adding a note
+  };
+
   return (
     <div className="flex h-screen p-5 bg-gray-50">
       {/* Left Section */}
       <div className="w-3/5 p-5 bg-white shadow-md rounded-lg flex flex-col">
-        <h2 className="text-xl font-bold mb-4">Note-Making & To-Do List</h2>
-        <div className="flex items-center mb-4">
-          <input
-            type="text"
-            value={task}
-            onChange={(e) => setTask(e.target.value)}
-            placeholder="Add a new task"
-            className="flex-1 py-2 px-4 border rounded-full outline-none"
-          />
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-xl font-bold">Notes & To-Do</h2>
           <button
-            onClick={addTask}
-            className="ml-2 bg-blue-500 text-white px-6 py-2 rounded-lg"
+            onClick={addNote}
+            className="bg-blue-500 text-white px-4 py-2 rounded-lg"
           >
-            Add
+            Add Note
           </button>
         </div>
-        <ul className="grid grid-cols-1 gap-4">
-          {tasks.map((t, index) => (
-            <li
-              key={index}
-              className="flex items-center justify-between p-4 bg-white shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300"
-            >
-              <span className="text-gray-700 font-medium">{t}</span>
-              <button
-                onClick={() => removeTask(index)}
-                className="text-red-500 text-sm px-3 py-1 rounded-md bg-red-100 hover:bg-red-200 transition-colors duration-200"
+
+        {/* Notes Container */}
+        <div className="mb-6">
+          <h3 className="text-lg font-semibold mb-2">Notes</h3>
+          <div className="grid grid-cols-1 gap-4">
+            {notes.map((note, index) => (
+              <div
+                key={index}
+                className="p-4 bg-gray-100 shadow rounded-lg hover:shadow-md transition duration-200"
               >
-                Remove
-              </button>
-            </li>
-          ))}
-        </ul>
+                <div
+                  dangerouslySetInnerHTML={{ __html: note }}
+                  className="text-gray-700"
+                ></div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* To-Do Section */}
+        {/* <div>
+          <h3 className="text-lg font-semibold mb-2">To-Do</h3>
+          <div className="flex items-center mb-4">
+            <input
+              type="text"
+              value={task}
+              onChange={(e) => setTask(e.target.value)}
+              placeholder="Add a new task"
+              className="flex-1 py-2 px-4 border rounded-full outline-none"
+            />
+            <button
+              onClick={addTask}
+              className="ml-2 bg-blue-500 text-white px-6 py-2 rounded-lg"
+            >
+              Add
+            </button>
+          </div>
+          <ul className="grid grid-cols-1 gap-4">
+            {tasks.map((t, index) => (
+              <li
+                key={index}
+                className="flex items-center justify-between p-4 bg-white shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300"
+              >
+                <span className="text-gray-700 font-medium">{t}</span>
+                <button
+                  onClick={() => removeTask(index)}
+                  className="text-red-500 text-sm px-3 py-1 rounded-md bg-red-100 hover:bg-red-200 transition-colors duration-200"
+                >
+                  Remove
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div> */}
       </div>
 
       {/* Right Section */}

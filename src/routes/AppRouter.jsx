@@ -20,6 +20,7 @@ import Settings from "../pages/SettingsPage/Settings";
 import PersonalBooking from "../pages/Personal Booking/PersonalBookingPage";
 import { Chat } from "../components/Chat";
 import PaymentComponent from "../pages/Payment/Payment";
+import AddNote from "../pages/AddNotes";
 
 // Loader fallback component (removed since lazy loading is no longer used)
 const LoaderFallback = () => (
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
       {
         path: "journal",
         element: <JournalPage />,
+      },
+      {
+        path: "/add-note",
+        element: <AddNote />,
       },
       {
         path: "settings",
