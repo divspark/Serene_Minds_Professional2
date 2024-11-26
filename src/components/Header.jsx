@@ -1,21 +1,49 @@
-// src/components/Header.jsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ActionIcon } from "@mantine/core";
 import { useToggle } from "@mantine/hooks";
 import { FiBell, FiLogOut, FiSearch } from "react-icons/fi";
 import { NotificationBell } from "../assets/icons/icons";
-import profilePicture from "../assets/8e2becda16e2f3abc85e162b63a8d214.jpeg";
+import profilePicture from "../assets/8e2becda16e2f3abc85e162b63a8d214.jpeg"; // Default profile image
 
 export default function Header() {
   const [toggleStates, toggle] = useToggle(["open", "close"]);
   const [isLoggedIn, setIsLoggedIn] = useState(true); // Toggle for login/logout
+  const [doctor, setDoctor] = useState(null); // To store doctor data
+  const [currentDate, setCurrentDate] = useState(""); // To store today's date
+
+  useEffect(() => {
+    // Fetch doctor's data from API using VITE_API_BASE_URL
+    const fetchDoctorData = async () => {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/professionals/2`);
+        const data = await response.json();
+        setDoctor(data); // Set fetched doctor data
+
+        // Set today's date in the format '24th Sep. 2024'
+        const today = new Date();
+        const options = { day: "numeric", month: "short", year: "numeric" };
+        setCurrentDate(today.toLocaleDateString("en-GB", options)); // Format: 24th Sep. 2024
+      } catch (error) {
+        console.error("Error fetching doctor data:", error);
+      }
+    };
+
+    fetchDoctorData();
+  }, []); // Runs only once when component is mounted
+
+  if (!doctor) {
+    return <div>Loading...</div>; // Show loading if doctor data is not yet fetched
+  }
+
+  // Use the profile picture URL from the API if it exists, otherwise use the default image
+  const profileImageUrl = doctor.photo_url || profilePicture;
 
   return (
-    <header className="flex items-center justify-between px-6 py-4 ">
+    <header className="flex items-center justify-between px-6 py-4">
       {/* Left Section - Heading & Subheading */}
       <div className="flex flex-col">
-        <h1 className="text-2xl text-black font-bold">Dr. Kim</h1>
-        <span className="text-lg color-[#505050]">24th Sep. 2024</span>
+        <h1 className="text-2xl text-black font-bold">{doctor.full_name}</h1>
+        <span className="text-lg text-[#505050]">{currentDate}</span>
       </div>
 
       {/* Middle Section - Search Box with Icon */}
@@ -38,12 +66,12 @@ export default function Header() {
           {isLoggedIn ? (
             <>
               <img
-                src={profilePicture}
+                src={profileImageUrl}
                 alt="User Profile"
                 className="w-10 h-10 rounded-full object-cover"
               />
               <span className="text-base font-medium text-gray-700">
-                Dr. Kim
+                {doctor.full_name}
               </span>
             </>
           ) : (
