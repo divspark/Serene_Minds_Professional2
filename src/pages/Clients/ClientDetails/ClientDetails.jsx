@@ -73,7 +73,7 @@ export default function ClientDetails() {
           <ClientInfoCard client={client} />
         </Box>
         <Box flex={0.3}>
-          <NotesCard clientId={client.id} /> {/* Pass client id for notes */}
+        <NotesCard professionalId={1} clientId={2} /> {/* Pass client id for notes */}
         </Box>
       </Flex>
       <Flex justify="space-between" p="sm">

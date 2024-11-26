@@ -19,6 +19,7 @@ import ClientAppointment from "../pages/ClientAppointment/ClientAppointment";
 import Settings from "../pages/SettingsPage/Settings";
 import PersonalBooking from "../pages/Personal Booking/PersonalBookingPage";
 import { Chat } from "../components/Chat";
+import PaymentComponent from "../pages/Payment/Payment";
 
 // Loader fallback component (removed since lazy loading is no longer used)
 const LoaderFallback = () => (
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
       {
         path: "payment",
         element: <Payment />,
+      },
+      {
+        path: "payment/process",
+        element: <PaymentComponent />,
       },
       {
         path: "profile",
